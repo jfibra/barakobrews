@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 80" width="320" height="80">
+  <defs>
+    <linearGradient id="bgGradLogo" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#C88A58" />
+      <stop offset="100%" stop-color="#1C120C" />
+    </linearGradient>
+    <linearGradient id="goldText" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#E4B58E" />
+      <stop offset="100%" stop-color="#C88A58" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Monogram Mark -->
+  <g transform="translate(10, 10)">
+    <rect width="60" height="60" rx="18" fill="url(#bgGradLogo)" />
+    <rect x="3" y="3" width="54" height="54" rx="15" fill="#1C120C" />
+    <text x="30" y="41" font-family="Georgia, 'Cormorant Garamond', serif" font-size="26" font-weight="bold" fill="#E4B58E" text-anchor="middle" letter-spacing="1">BB</text>
+  </g>
+
+  <!-- Typography Wordmark -->
+  <text x="85" y="44" font-family="Georgia, 'Cormorant Garamond', serif" font-size="32" font-weight="bold" fill="#FDFBF7">Barako<tspan fill="url(#goldText)">Brews</tspan></text>
+  <text x="86" y="62" font-family="system-ui, sans-serif" font-size="9" font-weight="bold" fill="#C88A58" letter-spacing="3.5" text-transform="uppercase">MOBILE COFFEE CATERING</text>
+</svg>

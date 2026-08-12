@@ -1,1 +1,93 @@
 @import "tailwindcss";
+
+@layer base {
+  :root {
+    --espresso: #1C120C;
+    --espresso-dark: #120B07;
+    --coffee: #3D261C;
+    --coffee-warm: #5A392A;
+    --caramel: #C88A58;
+    --caramel-light: #E4B58E;
+    --caramel-dark: #A2683A;
+    --cream: #FDFBF7;
+    --cream-dark: #F5EFEB;
+    --beige: #EAE1D8;
+    --sage-accent: #5C705D;
+    --text-main: #2A221E;
+    --text-muted: #6C6057;
+    --text-light: #A3968C;
+  }
+}
+
+@theme {
+  --color-espresso: var(--espresso);
+  --color-espresso-dark: var(--espresso-dark);
+  --color-coffee: var(--coffee);
+  --color-coffee-warm: var(--coffee-warm);
+  --color-caramel: var(--caramel);
+  --color-caramel-light: var(--caramel-light);
+  --color-caramel-dark: var(--caramel-dark);
+  --color-cream: var(--cream);
+  --color-cream-dark: var(--cream-dark);
+  --color-beige: var(--beige);
+  --color-sage: var(--sage-accent);
+  --color-text-main: var(--text-main);
+  --color-text-muted: var(--text-muted);
+  --color-text-light: var(--text-light);
+
+  --font-serif: var(--font-cormorant), Georgia, serif;
+  --font-sans: var(--font-manrope), system-ui, sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+  background-color: var(--cream);
+  color: var(--text-main);
+  font-family: var(--font-sans);
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: var(--cream-dark);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--caramel);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--caramel-dark);
+}
+
+/* Texture overlay effect */
+.bg-coffee-pattern {
+  background-color: var(--espresso);
+  background-image: radial-gradient(rgba(200, 138, 88, 0.07) 1px, transparent 1px);
+  background-size: 28px 28px;
+}
+
+.glass-card {
+  background: rgba(253, 251, 247, 0.88);
+  backdrop-filter: blur(16px);
+  border: 1px solid rgba(200, 138, 88, 0.15);
+}
+
+.glass-dark {
+  background: rgba(28, 18, 12, 0.88);
+  backdrop-filter: blur(16px);
+  border: 1px solid rgba(200, 138, 88, 0.2);
+}
+
+/* Custom Animations */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(16px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
