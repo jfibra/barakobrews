@@ -6,102 +6,100 @@ import { businessInfo, navLinks } from "@/data/config";
 
 export default function Footer() {
   return (
-    <footer className="relative border-t border-caramel/20 bg-espresso-dark pt-16 pb-12 text-cream font-sans">
+    <footer className="relative border-t border-caramel/20 bg-espresso-dark pt-16 pb-12 text-cream font-sans overflow-hidden">
       {/* Decorative Top Accent Glow */}
       <div className="absolute top-0 left-1/2 h-[1px] w-3/4 -translate-x-1/2 bg-gradient-to-r from-transparent via-caramel/50 to-transparent" />
 
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 gap-12 lg:grid-cols-12 lg:gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-12 gap-10 lg:gap-8">
           {/* Column 1: Brand Info */}
-          <div className="lg:col-span-4 space-y-6">
+          <div className="sm:col-span-2 lg:col-span-4 space-y-5">
             <Logo theme="dark" showSubtitle={true} />
-            <p className="text-sm leading-relaxed text-cream/70 max-w-sm font-normal">
+            <p className="text-xs sm:text-sm leading-relaxed text-cream/80 font-normal max-w-full sm:max-w-md">
               BarakoBrews brings freshly crafted coffee, professional baristas, and a memorable café experience straight to your wedding, corporate event, or private party.
             </p>
-            <div className="rounded-2xl border border-caramel/20 bg-espresso/60 p-4 backdrop-blur-md">
-              <p className="font-sans text-sm font-bold text-caramel-light">
+            <div className="rounded-2xl border border-caramel/20 bg-espresso/60 p-4 backdrop-blur-md max-w-full sm:max-w-md">
+              <p className="font-sans text-xs sm:text-sm font-bold text-caramel-light">
                 "{businessInfo.tagline}"
               </p>
-              <p className="mt-1 text-xs text-cream/60 font-normal">
+              <p className="mt-1 text-[11px] text-cream/60 font-normal">
                 Fresh coffee. Great company. Memorable moments.
               </p>
             </div>
           </div>
 
-          {/* Column 2: Explore Links */}
-          <div className="lg:col-span-2 col-span-6 space-y-4">
-            <h3 className="font-sans text-xs font-bold uppercase tracking-widest text-caramel-light">
-              Explore
-            </h3>
-            <ul className="space-y-2.5 text-xs text-cream/70 font-normal">
-              {navLinks.map((link) => (
-                <li key={link.name}>
-                  <Link
-                    href={link.href}
-                    className="transition-colors hover:text-caramel-light"
-                  >
-                    {link.name}
+          {/* Links Container for Mobile (2 Columns on mobile) */}
+          <div className="sm:col-span-2 lg:col-span-5 grid grid-cols-2 gap-8">
+            {/* Column 2: Explore Links */}
+            <div className="space-y-4">
+              <h3 className="font-sans text-xs font-bold uppercase tracking-widest text-caramel-light">
+                Explore
+              </h3>
+              <ul className="space-y-2.5 text-xs text-cream/80 font-normal">
+                {navLinks.map((link) => (
+                  <li key={link.name}>
+                    <Link
+                      href={link.href}
+                      className="transition-colors hover:text-caramel-light"
+                    >
+                      {link.name}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            {/* Column 3: Event Services */}
+            <div className="space-y-4">
+              <h3 className="font-sans text-xs font-bold uppercase tracking-widest text-caramel-light">
+                Events
+              </h3>
+              <ul className="space-y-2.5 text-xs text-cream/80 font-normal">
+                <li>
+                  <Link href="/services#weddings" className="hover:text-caramel-light">
+                    Weddings
                   </Link>
                 </li>
-              ))}
-            </ul>
-          </div>
-
-          {/* Column 3: Event Services */}
-          <div className="lg:col-span-3 col-span-6 space-y-4">
-            <h3 className="font-sans text-xs font-bold uppercase tracking-widest text-caramel-light">
-              Events
-            </h3>
-            <ul className="space-y-2.5 text-xs text-cream/70 font-normal">
-              <li>
-                <Link href="/services#weddings" className="hover:text-caramel-light">
-                  Weddings
-                </Link>
-              </li>
-              <li>
-                <Link href="/services#corporate" className="hover:text-caramel-light">
-                  Corporate Events
-                </Link>
-              </li>
-              <li>
-                <Link href="/services#private-parties" className="hover:text-caramel-light">
-                  Private Parties & Birthdays
-                </Link>
-              </li>
-              <li>
-                <Link href="/services#brand-events" className="hover:text-caramel-light">
-                  Brand Activations
-                </Link>
-              </li>
-              <li>
-                <Link href="/services#conferences" className="hover:text-caramel-light">
-                  Conferences & Summits
-                </Link>
-              </li>
-              <li>
-                <Link href="/services#custom-events" className="hover:text-caramel-light">
-                  Custom Events
-                </Link>
-              </li>
-            </ul>
+                <li>
+                  <Link href="/services#corporate" className="hover:text-caramel-light">
+                    Corporate Events
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/services#private-parties" className="hover:text-caramel-light">
+                    Private Parties
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/services#brand-events" className="hover:text-caramel-light">
+                    Brand Activations
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/services#conferences" className="hover:text-caramel-light">
+                    Conferences
+                  </Link>
+                </li>
+              </ul>
+            </div>
           </div>
 
           {/* Column 4: Contact & Book CTA */}
-          <div className="lg:col-span-3 space-y-4">
+          <div className="sm:col-span-2 lg:col-span-3 space-y-4 border-t border-caramel/15 pt-6 sm:border-t-0 sm:pt-0">
             <h3 className="font-sans text-xs font-bold uppercase tracking-widest text-caramel-light">
-              Contact
+              Contact Us
             </h3>
-            <div className="space-y-3 text-xs text-cream/70 font-normal">
-              <div className="flex items-start gap-3">
-                <Phone className="h-4 w-4 shrink-0 text-caramel mt-0.5" />
+            <div className="space-y-2.5 text-xs text-cream/80 font-normal">
+              <div className="flex items-center gap-3">
+                <Phone className="h-4 w-4 shrink-0 text-caramel" />
                 <span>{businessInfo.phone}</span>
               </div>
-              <div className="flex items-start gap-3">
-                <Mail className="h-4 w-4 shrink-0 text-caramel mt-0.5" />
-                <span>{businessInfo.email}</span>
+              <div className="flex items-center gap-3">
+                <Mail className="h-4 w-4 shrink-0 text-caramel" />
+                <span className="truncate">{businessInfo.email}</span>
               </div>
-              <div className="flex items-start gap-3">
-                <MapPin className="h-4 w-4 shrink-0 text-caramel mt-0.5" />
+              <div className="flex items-center gap-3">
+                <MapPin className="h-4 w-4 shrink-0 text-caramel" />
                 <span>{businessInfo.serviceArea}</span>
               </div>
             </div>
@@ -142,11 +140,11 @@ export default function Footer() {
         </div>
 
         {/* Bottom Bar */}
-        <div className="mt-12 flex flex-col items-center justify-between border-t border-caramel/15 pt-8 text-xs text-cream/40 sm:flex-row gap-4">
+        <div className="mt-12 flex flex-col items-center justify-between border-t border-caramel/15 pt-8 text-xs text-cream/50 sm:flex-row gap-4 text-center sm:text-left">
           <p>© {new Date().getFullYear()} BarakoBrews. All rights reserved.</p>
           <div className="flex gap-6">
-            <span className="hover:text-cream/70 cursor-pointer">Privacy Policy</span>
-            <span className="hover:text-cream/70 cursor-pointer">Terms & Conditions</span>
+            <span className="hover:text-cream/80 cursor-pointer">Privacy Policy</span>
+            <span className="hover:text-cream/80 cursor-pointer">Terms & Conditions</span>
           </div>
         </div>
       </div>
