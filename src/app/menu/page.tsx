@@ -28,35 +28,50 @@ export default function MenuPage() {
         </div>
       </section>
 
-      {/* Featured Signature Hero: Meet the Barako Latte */}
+      {/* Featured Signature Hero: Meet the Barako Latte & Matcha Series */}
       <section className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="rounded-3xl border border-caramel/30 bg-espresso p-8 sm:p-12 text-cream shadow-2xl">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
-            <div className="lg:col-span-7 space-y-6">
+            <div className="lg:col-span-5 space-y-6">
               <span className="inline-flex items-center gap-2 text-[10px] font-bold uppercase tracking-widest text-caramel-light bg-caramel/20 px-3 py-1 rounded-full border border-caramel/30">
                 <Sparkles className="h-3 w-3 text-caramel" />
-                FEATURED HOUSE SIGNATURE
+                FEATURED HOUSE SIGNATURES
               </span>
               <h2 className="font-sans text-3xl sm:text-4xl lg:text-5xl font-extrabold text-cream">
-                Meet the Barako Latte.
+                Meet our Craft & Matcha Lineup.
               </h2>
               <p className="text-xs sm:text-sm text-cream/80 leading-relaxed font-normal">
-                Inspired by the legendary Batangas Liberica bean, our signature <strong>Barako Latte</strong> balances dark, punchy espresso notes with raw muscovado sweetness and micro-foamed cream. It's the soul of our mobile coffee bar.
+                Inspired by dark Batangas Liberica espresso and authentic Japanese ceremonial matcha, our signature lineups bring handcrafted Filipino flavor profiles to every event.
               </p>
               <div className="flex flex-wrap gap-2 text-xs font-mono text-caramel-light pt-2">
                 <span className="bg-caramel/10 px-3 py-1 rounded-lg border border-caramel/20">Batangas Liberica</span>
-                <span className="bg-caramel/10 px-3 py-1 rounded-lg border border-caramel/20">Muscovado Syrup</span>
-                <span className="bg-caramel/10 px-3 py-1 rounded-lg border border-caramel/20">Textured Oat or Fresh Milk</span>
+                <span className="bg-caramel/10 px-3 py-1 rounded-lg border border-caramel/20">Ube Velvet & Muscovado</span>
+                <span className="bg-caramel/10 px-3 py-1 rounded-lg border border-caramel/20">Ceremonial Matcha</span>
               </div>
             </div>
 
-            <div className="lg:col-span-5">
-              <div className="overflow-hidden rounded-2xl border border-caramel/30 shadow-xl">
+            {/* Side by Side Dual Product Photos */}
+            <div className="lg:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div className="overflow-hidden rounded-2xl border border-caramel/30 bg-espresso-dark p-2 shadow-xl group">
                 <img
                   src="/images/menu/latte_lineup.jpg"
-                  alt="BarakoBrews Signature Barako Latte"
-                  className="w-full h-auto object-cover"
+                  alt="BarakoBrews Craft Coffee Lattes Lineup"
+                  className="w-full h-auto object-cover rounded-xl transition-transform duration-500 group-hover:scale-105"
                 />
+                <span className="block text-[10px] font-bold uppercase tracking-wider text-caramel-light text-center mt-2 pb-1">
+                  Craft Coffee Lattes
+                </span>
+              </div>
+
+              <div className="overflow-hidden rounded-2xl border border-caramel/30 bg-espresso-dark p-2 shadow-xl group">
+                <img
+                  src="/images/menu/matcha_lineup.jpg"
+                  alt="BarakoBrews Japanese Matcha & Ube Series Lineup"
+                  className="w-full h-auto object-cover rounded-xl transition-transform duration-500 group-hover:scale-105"
+                />
+                <span className="block text-[10px] font-bold uppercase tracking-wider text-caramel-light text-center mt-2 pb-1">
+                  Ceremonial Matcha & Ube Series
+                </span>
               </div>
             </div>
           </div>

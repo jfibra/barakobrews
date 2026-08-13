@@ -212,14 +212,27 @@ export default function Home() {
           />
 
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
-            {/* Left Photo Showcase */}
-            <div className="lg:col-span-6 space-y-6">
-              <div className="overflow-hidden rounded-3xl border border-caramel/30 shadow-2xl">
+            {/* Left Photo Showcase: Dual Product Lineups Side-by-Side */}
+            <div className="lg:col-span-6 grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div className="overflow-hidden rounded-2xl border border-caramel/30 bg-espresso p-2 shadow-xl group">
                 <img
                   src="/images/menu/latte_lineup.jpg"
                   alt="BarakoBrews Signature Latte Lineup"
-                  className="w-full h-auto object-cover"
+                  className="w-full h-auto object-cover rounded-xl transition-transform duration-500 group-hover:scale-105"
                 />
+                <span className="block text-[10px] font-bold uppercase tracking-wider text-caramel-light text-center mt-2 pb-1">
+                  Craft Coffee Lattes
+                </span>
+              </div>
+              <div className="overflow-hidden rounded-2xl border border-caramel/30 bg-espresso p-2 shadow-xl group">
+                <img
+                  src="/images/menu/matcha_lineup.jpg"
+                  alt="BarakoBrews Ceremonial Matcha & Ube Lineup"
+                  className="w-full h-auto object-cover rounded-xl transition-transform duration-500 group-hover:scale-105"
+                />
+                <span className="block text-[10px] font-bold uppercase tracking-wider text-caramel-light text-center mt-2 pb-1">
+                  Japanese Matcha Series
+                </span>
               </div>
             </div>
 
