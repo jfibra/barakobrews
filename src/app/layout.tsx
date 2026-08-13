@@ -89,8 +89,12 @@ export default function RootLayout({
     <html
       lang="en"
       className={`${outfit.variable} scroll-smooth`}
+      suppressHydrationWarning
     >
-      <body className="min-h-screen bg-cream text-text-main font-sans antialiased flex flex-col justify-between selection:bg-caramel selection:text-espresso">
+      <body
+        className="min-h-screen bg-cream text-text-main font-sans antialiased flex flex-col justify-between selection:bg-caramel selection:text-espresso"
+        suppressHydrationWarning
+      >
         <SEOStructuredData />
         <Header />
         <main className="grow">{children}</main>
