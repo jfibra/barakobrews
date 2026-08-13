@@ -6,39 +6,39 @@ import { businessInfo, navLinks } from "@/data/config";
 
 export default function Footer() {
   return (
-    <footer className="relative border-t border-caramel/20 bg-coffee-pattern pt-16 pb-12 text-cream">
+    <footer className="relative border-t border-caramel/20 bg-espresso-dark pt-16 pb-12 text-cream font-sans">
       {/* Decorative Top Accent Glow */}
       <div className="absolute top-0 left-1/2 h-[1px] w-3/4 -translate-x-1/2 bg-gradient-to-r from-transparent via-caramel/50 to-transparent" />
 
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 gap-12 lg:grid-cols-12 lg:gap-8">
-          {/* Brand Info */}
+          {/* Column 1: Brand Info */}
           <div className="lg:col-span-4 space-y-6">
             <Logo theme="dark" showSubtitle={true} />
-            <p className="text-sm leading-relaxed text-cream/70 max-w-sm">
+            <p className="text-sm leading-relaxed text-cream/70 max-w-sm font-normal">
               BarakoBrews brings freshly crafted coffee, professional baristas, and a memorable café experience straight to your wedding, corporate event, or private party.
             </p>
             <div className="rounded-2xl border border-caramel/20 bg-espresso/60 p-4 backdrop-blur-md">
-              <p className="font-serif text-sm font-semibold text-caramel-light">
+              <p className="font-sans text-sm font-bold text-caramel-light">
                 "{businessInfo.tagline}"
               </p>
-              <p className="mt-1 text-xs text-cream/50">
+              <p className="mt-1 text-xs text-cream/60 font-normal">
                 Fresh coffee. Great company. Memorable moments.
               </p>
             </div>
           </div>
 
-          {/* Navigation Links */}
+          {/* Column 2: Explore Links */}
           <div className="lg:col-span-2 col-span-6 space-y-4">
-            <h3 className="font-serif text-sm font-bold uppercase tracking-widest text-caramel-light">
-              Navigation
+            <h3 className="font-sans text-xs font-bold uppercase tracking-widest text-caramel-light">
+              Explore
             </h3>
-            <ul className="space-y-2.5 text-xs text-cream/70">
+            <ul className="space-y-2.5 text-xs text-cream/70 font-normal">
               {navLinks.map((link) => (
                 <li key={link.name}>
                   <Link
                     href={link.href}
-                    className="transition-colors hover:text-caramel-light hover:underline"
+                    className="transition-colors hover:text-caramel-light"
                   >
                     {link.name}
                   </Link>
@@ -47,20 +47,20 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Services */}
+          {/* Column 3: Event Services */}
           <div className="lg:col-span-3 col-span-6 space-y-4">
-            <h3 className="font-serif text-sm font-bold uppercase tracking-widest text-caramel-light">
-              Event Services
+            <h3 className="font-sans text-xs font-bold uppercase tracking-widest text-caramel-light">
+              Events
             </h3>
-            <ul className="space-y-2.5 text-xs text-cream/70">
+            <ul className="space-y-2.5 text-xs text-cream/70 font-normal">
               <li>
                 <Link href="/services#weddings" className="hover:text-caramel-light">
-                  Wedding Coffee Catering
+                  Weddings
                 </Link>
               </li>
               <li>
                 <Link href="/services#corporate" className="hover:text-caramel-light">
-                  Corporate Event Bar
+                  Corporate Events
                 </Link>
               </li>
               <li>
@@ -70,7 +70,7 @@ export default function Footer() {
               </li>
               <li>
                 <Link href="/services#brand-events" className="hover:text-caramel-light">
-                  Brand Activations & Launches
+                  Brand Activations
                 </Link>
               </li>
               <li>
@@ -80,18 +80,18 @@ export default function Footer() {
               </li>
               <li>
                 <Link href="/services#custom-events" className="hover:text-caramel-light">
-                  Custom Event Catering
+                  Custom Events
                 </Link>
               </li>
             </ul>
           </div>
 
-          {/* Contact Details */}
+          {/* Column 4: Contact & Book CTA */}
           <div className="lg:col-span-3 space-y-4">
-            <h3 className="font-serif text-sm font-bold uppercase tracking-widest text-caramel-light">
-              Contact & Area
+            <h3 className="font-sans text-xs font-bold uppercase tracking-widest text-caramel-light">
+              Contact
             </h3>
-            <div className="space-y-3 text-xs text-cream/70">
+            <div className="space-y-3 text-xs text-cream/70 font-normal">
               <div className="flex items-start gap-3">
                 <Phone className="h-4 w-4 shrink-0 text-caramel mt-0.5" />
                 <span>{businessInfo.phone}</span>
@@ -106,8 +106,8 @@ export default function Footer() {
               </div>
             </div>
 
-            {/* Social Links */}
-            <div className="pt-2 flex items-center gap-3">
+            {/* Social & CTA */}
+            <div className="pt-2 flex flex-wrap items-center gap-3">
               <a
                 href={businessInfo.instagram}
                 target="_blank"
@@ -131,10 +131,10 @@ export default function Footer() {
                 </svg>
               </a>
               <Link
-                href="/quote"
-                className="flex items-center gap-1 text-xs font-semibold text-caramel-light hover:underline ml-2"
+                href="/get-a-quote"
+                className="inline-flex items-center gap-1.5 rounded-full bg-caramel/20 border border-caramel/40 px-4 py-2 text-xs font-bold uppercase tracking-wider text-caramel-light hover:bg-caramel hover:text-espresso transition-all"
               >
-                <span>Book Event</span>
+                <span>Book an Event</span>
                 <ArrowUpRight className="h-3.5 w-3.5" />
               </Link>
             </div>

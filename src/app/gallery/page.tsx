@@ -1,29 +1,27 @@
 import React from "react";
-import SectionHeading from "@/components/SectionHeading";
 import GalleryGrid from "@/components/GalleryGrid";
 import CTASection from "@/components/CTASection";
 
 export const metadata = {
-  title: "Event Photography Gallery — BarakoBrews",
+  title: "BarakoBrews Event Gallery | Mobile Coffee Catering",
   description:
-    "Browse our event photography gallery featuring weddings, corporate catering setups, birthday mobile bars, and artisan coffee preparation.",
+    "Browse our event photography gallery featuring weddings, corporate catering setups, birthday mobile bars, and barista coffee craft moments.",
 };
 
 export default function GalleryPage() {
   return (
-    <div className="pt-28 pb-20 space-y-20">
+    <div className="pt-28 pb-20 space-y-20 font-sans">
       {/* Header Banner */}
-      <section className="relative bg-[url('/images/bg/cta_bg_event.png')] bg-cover bg-center py-20 text-cream border-b border-caramel/20">
-        <div className="absolute inset-0 bg-espresso-dark/95 backdrop-blur-[1px]" />
+      <section className="relative bg-espresso-dark py-20 text-cream border-b border-caramel/20">
         <div className="relative z-10 mx-auto max-w-7xl px-6 sm:px-8 lg:px-12 text-center space-y-4">
-          <span className="inline-block rounded-full border border-caramel/30 bg-espresso/80 px-4 py-1 text-xs font-bold uppercase tracking-widest text-caramel-light">
-            Visual Experience
+          <span className="inline-block rounded-full border border-caramel/30 bg-caramel/10 px-4 py-1 text-xs font-bold uppercase tracking-widest text-caramel-light">
+            VISUAL EXPERIENCE
           </span>
-          <h1 className="font-serif text-4xl sm:text-5xl font-bold tracking-tight text-cream">
-            EVENT GALLERY
+          <h1 className="font-sans text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-cream">
+            Event gallery.
           </h1>
-          <p className="text-base sm:text-lg text-cream/70 max-w-2xl mx-auto">
-            Explore past events, mobile cart styling, wedding receptions, and barista coffee craft moments.
+          <p className="text-base sm:text-lg text-cream/80 max-w-2xl mx-auto font-normal leading-relaxed">
+            Explore past celebrations, mobile cart setups, wedding receptions, and barista craft moments.
           </p>
         </div>
       </section>

@@ -2,20 +2,20 @@ export const businessInfo = {
   name: "BarakoBrews",
   tagline: "Coffee Worth Gathering For.",
   subtagline:
-    "A premium mobile coffee experience, crafted for weddings, celebrations, corporate events, and unforgettable gatherings.",
-  introTitle: "YOUR EVENT, BREWED BETTER.",
+    "Southern California's premier mobile coffee bar catering weddings, corporate activations, and private events with specialty espresso & modern Filipino brews.",
+  introTitle: "Your Event, Brewed Better.",
   introText:
-    "BarakoBrews brings the experience of a specialty coffee shop directly to your celebration. From intimate gatherings to large corporate events, our mobile coffee bar creates a warm and interactive experience your guests will remember.",
-  storyTitle: "MORE THAN COFFEE. IT'S A REASON TO GATHER.",
+    "BarakoBrews brings a boutique espresso bar directly to your Southern California celebration. From Malibu estate weddings to SoCal tech summits and private coastal parties, our mobile coffee bar creates a warm, interactive experience your guests will remember.",
+  storyTitle: "More than coffee. It's a reason to gather.",
   
-  // Configurable Placeholder Contact Details
-  phone: "[Phone Number]",
-  phoneRaw: "+639000000000",
-  email: "[Email Address]",
-  serviceArea: "[Service Area / Metro & Surrounding Region]",
+  // Southern California Contact Details
+  phone: "(310) 880-BREW",
+  phoneRaw: "+13108802739",
+  email: "hello@barakobrews.com",
+  serviceArea: "Southern California (Los Angeles, Orange County, San Diego, Inland Empire)",
   businessHours: "Mon - Sun: 7:00 AM - 10:00 PM (By Reservation)",
   
-  // Social Placeholders
+  // Social Handles
   instagram: "https://instagram.com/barakobrews",
   facebook: "https://facebook.com/barakobrews",
   
@@ -25,7 +25,6 @@ export const businessInfo = {
 };
 
 export const navLinks = [
-  { name: "Home", href: "/" },
   { name: "Services", href: "/services" },
   { name: "Packages", href: "/packages" },
   { name: "Menu", href: "/menu" },

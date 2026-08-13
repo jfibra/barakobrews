@@ -3,31 +3,29 @@ import Link from "next/link";
 import SectionHeading from "@/components/SectionHeading";
 import PackageCard from "@/components/PackageCard";
 import CTASection from "@/components/CTASection";
-import FAQAccordion from "@/components/FAQAccordion";
 import { packagesData } from "@/data/packages";
-import { ArrowRight, Check } from "lucide-react";
+import { ArrowRight, HelpCircle, Sparkles } from "lucide-react";
 
 export const metadata = {
-  title: "Coffee Catering Packages — BarakoBrews",
+  title: "Coffee Catering Packages & Rates | BarakoBrews",
   description:
-    "View our coffee catering packages (Essential Brew, Signature Brew, Grand Brew) with guest counts, barista service, and customizable options.",
+    "Explore our mobile coffee catering package tiers (Essential Brew, Signature Brew, Grand Brew) for weddings, corporate events, and celebrations.",
 };
 
 export default function PackagesPage() {
   return (
-    <div className="pt-28 pb-20 space-y-20">
+    <div className="pt-28 pb-20 space-y-20 font-sans">
       {/* Header Banner */}
-      <section className="relative bg-[url('/images/bg/cta_bg_event.png')] bg-cover bg-center py-20 text-cream border-b border-caramel/20">
-        <div className="absolute inset-0 bg-espresso-dark/95 backdrop-blur-[1px]" />
+      <section className="relative bg-espresso-dark py-20 text-cream border-b border-caramel/20">
         <div className="relative z-10 mx-auto max-w-7xl px-6 sm:px-8 lg:px-12 text-center space-y-4">
-          <span className="inline-block rounded-full border border-caramel/30 bg-espresso/80 px-4 py-1 text-xs font-bold uppercase tracking-widest text-caramel-light">
-            Catering Tiers & Rates
+          <span className="inline-block rounded-full border border-caramel/30 bg-caramel/10 px-4 py-1 text-xs font-bold uppercase tracking-widest text-caramel-light">
+            CATERING TIERS
           </span>
-          <h1 className="font-serif text-4xl sm:text-5xl font-bold tracking-tight text-cream">
-            CHOOSE YOUR BREW
+          <h1 className="font-sans text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-cream">
+            Choose your brew.
           </h1>
-          <p className="text-base sm:text-lg text-cream/70 max-w-2xl mx-auto">
-            Transparent catering tiers built for intimate gatherings, weddings, and high-volume corporate events.
+          <p className="text-base sm:text-lg text-cream/80 max-w-2xl mx-auto font-normal leading-relaxed">
+            Transparent catering tiers built for intimate gatherings, weddings, and high-volume corporate celebrations.
           </p>
         </div>
       </section>
@@ -41,18 +39,42 @@ export default function PackagesPage() {
         </div>
       </section>
 
+      {/* "Help Me Choose" Concierge Banner */}
+      <section className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div className="rounded-3xl border border-caramel/30 bg-espresso p-8 sm:p-10 text-cream flex flex-col sm:flex-row items-center justify-between gap-6 shadow-xl">
+          <div className="space-y-2 text-center sm:text-left">
+            <div className="flex items-center justify-center sm:justify-start gap-2 text-caramel-light text-xs font-bold uppercase tracking-wider">
+              <HelpCircle className="h-4 w-4 text-caramel" />
+              <span>CUSTOM ADVICE</span>
+            </div>
+            <h3 className="font-sans text-2xl font-bold">
+              Not sure which package fits your event?
+            </h3>
+            <p className="text-xs text-cream/70 max-w-lg font-normal">
+              Tell us your estimated guest count, event location, and duration, and our team will recommend the ideal setup.
+            </p>
+          </div>
+          <Link
+            href="/get-a-quote"
+            className="shrink-0 inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-caramel to-caramel-dark px-8 py-3.5 text-xs font-bold uppercase tracking-widest text-espresso shadow-lg hover:scale-105 transition-all"
+          >
+            <span>Help Me Choose →</span>
+          </Link>
+        </div>
+      </section>
+
       {/* Feature Comparison Table */}
       <section className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 space-y-8">
         <SectionHeading
-          eyebrow="Detailed Breakdown"
-          title="PACKAGE COMPARISON"
+          eyebrow="DETAILED BREAKDOWN"
+          title="Compare packages."
           subtitle="Compare guest capacities, barista counts, drink selections, and customization options side by side."
         />
 
         <div className="overflow-x-auto rounded-3xl border border-caramel/30 bg-espresso text-cream shadow-xl">
           <table className="w-full text-left text-xs">
             <thead>
-              <tr className="border-b border-caramel/20 bg-espresso-dark/90 text-caramel-light font-serif text-sm">
+              <tr className="border-b border-caramel/20 bg-espresso-dark/90 text-caramel-light font-sans text-sm">
                 <th className="p-4 sm:p-6 font-bold">Feature</th>
                 <th className="p-4 sm:p-6 font-bold">Essential Brew</th>
                 <th className="p-4 sm:p-6 font-bold">Signature Brew (Popular)</th>
@@ -92,22 +114,13 @@ export default function PackagesPage() {
               </tr>
               <tr>
                 <td className="p-4 sm:p-6 font-bold text-cream">Pricing Rate</td>
-                <td className="p-4 sm:p-6 font-serif text-sm font-bold text-caramel-light">Starting at ₱XX,XXX</td>
-                <td className="p-4 sm:p-6 font-serif text-sm font-bold text-caramel-light">Starting at ₱XX,XXX</td>
-                <td className="p-4 sm:p-6 font-serif text-sm font-bold text-caramel-light">Starting at ₱XX,XXX</td>
+                <td className="p-4 sm:p-6 font-sans text-xs font-semibold text-caramel-light">Custom Quote / Tier 1</td>
+                <td className="p-4 sm:p-6 font-sans text-xs font-semibold text-caramel-light">Custom Quote / Tier 2</td>
+                <td className="p-4 sm:p-6 font-sans text-xs font-semibold text-caramel-light">Custom Quote / Tier 3</td>
               </tr>
             </tbody>
           </table>
         </div>
-      </section>
-
-      {/* FAQ Quick Section */}
-      <section className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 space-y-8">
-        <SectionHeading
-          eyebrow="Package Questions"
-          title="PACKAGE & PRICING FAQS"
-        />
-        <FAQAccordion />
       </section>
 
       {/* CTA */}

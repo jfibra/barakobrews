@@ -15,56 +15,52 @@ import {
   ArrowRight,
   ArrowLeft,
   Sparkles,
-  Heart,
-  Briefcase,
-  PartyPopper,
+  ShieldCheck,
 } from "lucide-react";
 import { packagesData } from "@/data/packages";
 import { servicesData } from "@/data/services";
 
 interface FormDataState {
-  // Step 1
-  fullName: string;
-  email: string;
-  phone: string;
-
-  // Step 2
+  // Step 1: Your Event
   eventType: string;
   eventDate: string;
-  startTime: string;
-  endTime: string;
-  guestCount: string;
   eventLocation: string;
   venueName: string;
 
-  // Step 3
+  // Step 2: Your Guests
+  guestCount: string;
+  serviceDuration: string;
+  startTime: string;
+
+  // Step 3: Coffee Experience
   preferredPackage: string;
   coffeeOptions: string[];
   nonCoffeeOptions: string[];
   specialRequests: string;
 
-  // Step 4
+  // Step 4: Contact Details
+  fullName: string;
+  email: string;
+  phone: string;
   referralSource: string;
-  additionalNotes: string;
 }
 
 const initialFormState: FormDataState = {
+  eventType: "Wedding",
+  eventDate: "",
+  eventLocation: "",
+  venueName: "",
+  guestCount: "60 - 120 guests",
+  serviceDuration: "3 Hours",
+  startTime: "14:00",
+  preferredPackage: "signature-brew",
+  coffeeOptions: ["Barako Latte", "Spanish Latte", "Caramel Cloud"],
+  nonCoffeeOptions: ["Ceremonial Matcha", "Belgian Chocolate"],
+  specialRequests: "",
   fullName: "",
   email: "",
   phone: "",
-  eventType: "Wedding",
-  eventDate: "",
-  startTime: "14:00",
-  endTime: "18:00",
-  guestCount: "50-100 guests",
-  eventLocation: "",
-  venueName: "",
-  preferredPackage: "signature-brew",
-  coffeeOptions: ["Espresso", "Barako Latte", "Spanish Latte"],
-  nonCoffeeOptions: ["Ceremonial Matcha", "Dark Chocolate"],
-  specialRequests: "",
   referralSource: "Social Media",
-  additionalNotes: "",
 };
 
 export default function QuoteForm({
@@ -117,15 +113,13 @@ export default function QuoteForm({
   const validateStep = (step: number) => {
     const errs: Record<string, string> = {};
     if (step === 1) {
-      if (!formData.fullName.trim()) errs.fullName = "Full Name is required";
-      if (!formData.email.trim() || !formData.email.includes("@"))
-        errs.email = "Valid email is required";
-      if (!formData.phone.trim()) errs.phone = "Phone number is required";
-    }
-    if (step === 2) {
       if (!formData.eventDate) errs.eventDate = "Event date is required";
-      if (!formData.eventLocation.trim())
-        errs.eventLocation = "City / Region location is required";
+      if (!formData.eventLocation.trim()) errs.eventLocation = "Location / City is required";
+    }
+    if (step === 4) {
+      if (!formData.fullName.trim()) errs.fullName = "Full Name is required";
+      if (!formData.email.trim() || !formData.email.includes("@")) errs.email = "Valid email is required";
+      if (!formData.phone.trim()) errs.phone = "Phone number is required";
     }
     setErrors(errs);
     return Object.keys(errs).length === 0;
@@ -133,7 +127,7 @@ export default function QuoteForm({
 
   const nextStep = () => {
     if (validateStep(currentStep)) {
-      setCurrentStep((prev) => Math.min(prev + 1, 4));
+      setCurrentStep((prev) => Math.min(prev + 1, 5));
     }
   };
 
@@ -162,31 +156,31 @@ export default function QuoteForm({
           particleCount: 80,
           spread: 70,
           origin: { y: 0.6 },
-          colors: ["#C88A58", "#3D261C", "#FDFBF7", "#A2683A"],
+          colors: ["#AF8155", "#754528", "#FCF6EC", "#2C160A"],
         });
       } catch {
-        // fallback if confetti fails
+        // fallback
       }
     }
   };
 
   if (isSubmitted) {
     return (
-      <div className="rounded-3xl border border-caramel/40 bg-espresso p-8 sm:p-12 text-center text-cream shadow-2xl space-y-6 max-w-2xl mx-auto animate-fade-in">
+      <div className="rounded-3xl border border-caramel/40 bg-espresso p-8 sm:p-12 text-center text-cream shadow-2xl space-y-6 max-w-2xl mx-auto animate-fade-in font-sans">
         <div className="mx-auto flex h-20 w-20 items-center justify-center rounded-full bg-caramel/20 text-caramel-light border border-caramel">
           <CheckCircle2 className="h-10 w-10 text-caramel" />
         </div>
-        <span className="text-xs font-semibold uppercase tracking-widest text-caramel-light bg-caramel/10 px-4 py-1 rounded-full border border-caramel/20">
-          Inquiry Received
+        <span className="text-xs font-bold uppercase tracking-widest text-caramel-light bg-caramel/10 px-4 py-1 rounded-full border border-caramel/20">
+          INQUIRY RECEIVED
         </span>
-        <h2 className="font-serif text-3xl font-bold">
-          Your coffee journey starts here.
+        <h2 className="font-sans text-3xl font-bold text-cream">
+          Your coffee proposal is on the way.
         </h2>
-        <p className="text-base text-cream/80 max-w-md mx-auto leading-relaxed">
-          Thank you! We've received your event details and will be in touch soon with your personalized quote.
+        <p className="text-sm text-cream/80 max-w-md mx-auto leading-relaxed font-normal">
+          Thank you! We've received your event details and will review your request to send a tailored coffee catering proposal within 24 hours.
         </p>
 
-        {/* Summary Card */}
+        {/* Summary Preview Box */}
         <div className="rounded-2xl border border-caramel/20 bg-espresso-dark/80 p-6 text-left text-xs space-y-2 max-w-md mx-auto">
           <div className="flex justify-between border-b border-caramel/10 pb-2">
             <span className="text-cream/50">Contact:</span>
@@ -197,8 +191,8 @@ export default function QuoteForm({
             <span className="font-bold text-caramel-light">{formData.eventType}</span>
           </div>
           <div className="flex justify-between border-b border-caramel/10 pb-2">
-            <span className="text-cream/50">Date & Guests:</span>
-            <span className="font-bold text-cream">{formData.eventDate || "TBD"} ({formData.guestCount})</span>
+            <span className="text-cream/50">Date & Location:</span>
+            <span className="font-bold text-cream">{formData.eventDate || "TBD"} ({formData.eventLocation})</span>
           </div>
           <div className="flex justify-between">
             <span className="text-cream/50">Package:</span>
@@ -220,35 +214,267 @@ export default function QuoteForm({
   }
 
   return (
-    <div className="rounded-3xl border border-caramel/30 bg-espresso p-6 sm:p-10 text-cream shadow-2xl max-w-3xl mx-auto">
-      {/* Progress Header Bar */}
+    <div className="rounded-3xl border border-caramel/30 bg-espresso p-6 sm:p-10 text-cream shadow-2xl max-w-3xl mx-auto font-sans">
+      {/* Step Indicator Header */}
       <div className="mb-8 border-b border-caramel/20 pb-6">
         <div className="flex items-center justify-between text-xs font-bold uppercase tracking-widest text-caramel-light mb-3">
-          <span>Step 0{currentStep} of 04</span>
+          <span>Step 0{currentStep} of 05</span>
           <span>
-            {currentStep === 1 && "Contact Information"}
-            {currentStep === 2 && "Event Details"}
+            {currentStep === 1 && "Your Event"}
+            {currentStep === 2 && "Your Guests"}
             {currentStep === 3 && "Coffee Experience"}
-            {currentStep === 4 && "Final Details"}
+            {currentStep === 4 && "Your Details"}
+            {currentStep === 5 && "Review & Request"}
           </span>
         </div>
         <div className="h-2 w-full overflow-hidden rounded-full bg-espresso-dark">
           <div
-            className="h-full bg-gradient-to-r from-caramel via-[#D99A66] to-caramel-dark transition-all duration-500"
-            style={{ width: `${(currentStep / 4) * 100}%` }}
+            className="h-full bg-gradient-to-r from-caramel via-[#C49466] to-caramel-dark transition-all duration-500"
+            style={{ width: `${(currentStep / 5) * 100}%` }}
           />
         </div>
       </div>
 
       <form onSubmit={handleSubmit} className="space-y-6">
-        {/* STEP 1: Contact Information */}
+        {/* STEP 1: Your Event */}
         {currentStep === 1 && (
           <div className="space-y-5 animate-fade-in">
-            <h3 className="font-serif text-2xl font-bold text-cream">
-              Tell Us Who You Are
+            <h3 className="font-sans text-2xl font-bold text-cream">
+              Step 1: Your Event
             </h3>
-            <p className="text-xs text-cream/70">
-              We'll send your customized quote and proposal directly to your contact inbox.
+            <p className="text-xs text-cream/70 font-normal">
+              Tell us what occasion you are celebrating and where it takes place.
+            </p>
+
+            <div>
+              <label className="block text-xs font-bold uppercase tracking-wider text-caramel-light mb-1.5">
+                Event Type
+              </label>
+              <select
+                name="eventType"
+                value={formData.eventType}
+                onChange={handleChange}
+                className="w-full rounded-xl border border-caramel/30 bg-espresso-dark/90 px-4 py-3 text-sm text-cream focus:border-caramel focus:outline-none"
+              >
+                <option value="Wedding">Wedding Reception</option>
+                <option value="Corporate Event">Corporate Event / Summit</option>
+                <option value="Private Celebration">Private Birthday / Anniversary</option>
+                <option value="Brand Activation">Brand Launch / Activation</option>
+                <option value="Conference">Conference / Seminar</option>
+                <option value="Custom Event">Custom Celebration</option>
+              </select>
+            </div>
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div>
+                <label className="block text-xs font-bold uppercase tracking-wider text-caramel-light mb-1.5">
+                  Event Date *
+                </label>
+                <input
+                  type="date"
+                  name="eventDate"
+                  value={formData.eventDate}
+                  onChange={handleChange}
+                  className="w-full rounded-xl border border-caramel/30 bg-espresso-dark/90 px-4 py-3 text-sm text-cream focus:border-caramel focus:outline-none"
+                />
+                {errors.eventDate && (
+                  <p className="mt-1 text-[11px] text-red-400">{errors.eventDate}</p>
+                )}
+              </div>
+
+              <div>
+                <label className="block text-xs font-bold uppercase tracking-wider text-caramel-light mb-1.5">
+                  Location / City *
+                </label>
+                <input
+                  type="text"
+                  name="eventLocation"
+                  placeholder="e.g. Metro Manila / Tagaytay"
+                  value={formData.eventLocation}
+                  onChange={handleChange}
+                  className="w-full rounded-xl border border-caramel/30 bg-espresso-dark/90 px-4 py-3 text-sm text-cream placeholder-cream/40 focus:border-caramel focus:outline-none"
+                />
+                {errors.eventLocation && (
+                  <p className="mt-1 text-[11px] text-red-400">{errors.eventLocation}</p>
+                )}
+              </div>
+            </div>
+
+            <div>
+              <label className="block text-xs font-bold uppercase tracking-wider text-caramel-light mb-1.5">
+                Venue Name (Optional)
+              </label>
+              <input
+                type="text"
+                name="venueName"
+                placeholder="e.g. Grand Ballroom / Private Garden"
+                value={formData.venueName}
+                onChange={handleChange}
+                className="w-full rounded-xl border border-caramel/30 bg-espresso-dark/90 px-4 py-3 text-sm text-cream placeholder-cream/40 focus:border-caramel focus:outline-none"
+              />
+            </div>
+          </div>
+        )}
+
+        {/* STEP 2: Your Guests */}
+        {currentStep === 2 && (
+          <div className="space-y-5 animate-fade-in">
+            <h3 className="font-sans text-2xl font-bold text-cream">
+              Step 2: Your Guests & Schedule
+            </h3>
+            <p className="text-xs text-cream/70 font-normal">
+              Help us estimate barista staffing and high-volume espresso equipment capacity.
+            </p>
+
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+              <div>
+                <label className="block text-xs font-bold uppercase tracking-wider text-caramel-light mb-1.5">
+                  Estimated Guest Count
+                </label>
+                <select
+                  name="guestCount"
+                  value={formData.guestCount}
+                  onChange={handleChange}
+                  className="w-full rounded-xl border border-caramel/30 bg-espresso-dark/90 px-4 py-3 text-sm text-cream focus:border-caramel focus:outline-none"
+                >
+                  <option value="Under 30 guests">Under 30 guests</option>
+                  <option value="30 - 60 guests">30 - 60 guests</option>
+                  <option value="60 - 120 guests">60 - 120 guests</option>
+                  <option value="120 - 200 guests">120 - 200 guests</option>
+                  <option value="200+ guests">200+ guests</option>
+                </select>
+              </div>
+
+              <div>
+                <label className="block text-xs font-bold uppercase tracking-wider text-caramel-light mb-1.5">
+                  Service Duration
+                </label>
+                <select
+                  name="serviceDuration"
+                  value={formData.serviceDuration}
+                  onChange={handleChange}
+                  className="w-full rounded-xl border border-caramel/30 bg-espresso-dark/90 px-4 py-3 text-sm text-cream focus:border-caramel focus:outline-none"
+                >
+                  <option value="2 Hours">2 Hours</option>
+                  <option value="3 Hours">3 Hours</option>
+                  <option value="4 Hours">4 Hours</option>
+                  <option value="Full Day (5+ Hours)">Full Day (5+ Hours)</option>
+                </select>
+              </div>
+
+              <div>
+                <label className="block text-xs font-bold uppercase tracking-wider text-caramel-light mb-1.5">
+                  Service Start Time
+                </label>
+                <input
+                  type="time"
+                  name="startTime"
+                  value={formData.startTime}
+                  onChange={handleChange}
+                  className="w-full rounded-xl border border-caramel/30 bg-espresso-dark/90 px-4 py-3 text-sm text-cream focus:border-caramel focus:outline-none"
+                />
+              </div>
+            </div>
+          </div>
+        )}
+
+        {/* STEP 3: Coffee Experience */}
+        {currentStep === 3 && (
+          <div className="space-y-5 animate-fade-in">
+            <h3 className="font-sans text-2xl font-bold text-cream">
+              Step 3: Your Coffee Experience
+            </h3>
+            <p className="text-xs text-cream/70 font-normal">
+              Select your package tier and favorite drink options.
+            </p>
+
+            <div>
+              <label className="block text-xs font-bold uppercase tracking-wider text-caramel-light mb-2">
+                Preferred Package Tier
+              </label>
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
+                {packagesData.map((pkg) => (
+                  <button
+                    key={pkg.id}
+                    type="button"
+                    onClick={() =>
+                      setFormData((prev) => ({ ...prev, preferredPackage: pkg.id }))
+                    }
+                    className={`rounded-2xl border p-4 text-left transition-all ${
+                      formData.preferredPackage === pkg.id
+                        ? "border-caramel bg-caramel/20 text-cream ring-1 ring-caramel"
+                        : "border-caramel/20 bg-espresso-dark/60 text-cream/70 hover:border-caramel/40"
+                    }`}
+                  >
+                    <span className="font-sans text-sm font-bold block">{pkg.name}</span>
+                    <span className="text-[10px] text-caramel-light block mt-1">{pkg.guestCapacity}</span>
+                  </button>
+                ))}
+              </div>
+            </div>
+
+            <div>
+              <label className="block text-xs font-bold uppercase tracking-wider text-caramel-light mb-2">
+                Coffee Options
+              </label>
+              <div className="grid grid-cols-2 sm:grid-cols-3 gap-2 text-xs">
+                {["Barako Latte", "Spanish Latte", "Caramel Cloud", "Espresso", "Americano", "Mocha"].map((item) => (
+                  <label
+                    key={item}
+                    className={`flex items-center gap-2 rounded-xl border p-2.5 cursor-pointer transition-colors ${
+                      formData.coffeeOptions.includes(item)
+                        ? "border-caramel bg-caramel/20 text-cream"
+                        : "border-caramel/20 bg-espresso-dark/60 text-cream/60"
+                    }`}
+                  >
+                    <input
+                      type="checkbox"
+                      checked={formData.coffeeOptions.includes(item)}
+                      onChange={() => handleCheckboxToggle("coffeeOptions", item)}
+                      className="accent-caramel"
+                    />
+                    <span>{item}</span>
+                  </label>
+                ))}
+              </div>
+            </div>
+
+            <div>
+              <label className="block text-xs font-bold uppercase tracking-wider text-caramel-light mb-2">
+                Non-Coffee & Specialty Options
+              </label>
+              <div className="grid grid-cols-2 sm:grid-cols-3 gap-2 text-xs">
+                {["Ceremonial Matcha", "Belgian Chocolate", "Spiced Chai", "Oat Milk Option", "Almond Milk"].map((item) => (
+                  <label
+                    key={item}
+                    className={`flex items-center gap-2 rounded-xl border p-2.5 cursor-pointer transition-colors ${
+                      formData.nonCoffeeOptions.includes(item)
+                        ? "border-caramel bg-caramel/20 text-cream"
+                        : "border-caramel/20 bg-espresso-dark/60 text-cream/60"
+                    }`}
+                  >
+                    <input
+                      type="checkbox"
+                      checked={formData.nonCoffeeOptions.includes(item)}
+                      onChange={() => handleCheckboxToggle("nonCoffeeOptions", item)}
+                      className="accent-caramel"
+                    />
+                    <span>{item}</span>
+                  </label>
+                ))}
+              </div>
+            </div>
+          </div>
+        )}
+
+        {/* STEP 4: Your Details */}
+        {currentStep === 4 && (
+          <div className="space-y-5 animate-fade-in">
+            <h3 className="font-sans text-2xl font-bold text-cream">
+              Step 4: Your Contact Details
+            </h3>
+            <p className="text-xs text-cream/70 font-normal">
+              We'll send your customized proposal and pricing breakdown directly to your inbox.
             </p>
 
             <div>
@@ -256,7 +482,7 @@ export default function QuoteForm({
                 Full Name *
               </label>
               <div className="relative">
-                <User className="absolute left-3 top.5 top-1/2 -translate-y-1/2 h-4 w-4 text-cream/50" />
+                <User className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-cream/50" />
                 <input
                   type="text"
                   name="fullName"
@@ -315,249 +541,44 @@ export default function QuoteForm({
           </div>
         )}
 
-        {/* STEP 2: Event Details */}
-        {currentStep === 2 && (
-          <div className="space-y-5 animate-fade-in">
-            <h3 className="font-serif text-2xl font-bold text-cream">
-              Event Details
+        {/* STEP 5: Review & Submit */}
+        {currentStep === 5 && (
+          <div className="space-y-6 animate-fade-in font-sans">
+            <h3 className="font-sans text-2xl font-bold text-cream">
+              Step 5: Review Your Proposal Request
             </h3>
-            <p className="text-xs text-cream/70">
-              Help us understand your venue, schedule, and guest count.
-            </p>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-              <div>
-                <label className="block text-xs font-bold uppercase tracking-wider text-caramel-light mb-1.5">
-                  Event Type
-                </label>
-                <select
-                  name="eventType"
-                  value={formData.eventType}
-                  onChange={handleChange}
-                  className="w-full rounded-xl border border-caramel/30 bg-espresso-dark/90 px-4 py-3 text-sm text-cream focus:border-caramel focus:outline-none"
-                >
-                  <option value="Wedding">Wedding Reception</option>
-                  <option value="Corporate Event">Corporate Event / Summit</option>
-                  <option value="Private Birthday">Birthday Party / Anniversary</option>
-                  <option value="Brand Activation">Brand Launch / Activation</option>
-                  <option value="Conference">Conference / Seminar</option>
-                  <option value="Custom Celebration">Custom Celebration</option>
-                </select>
+            {/* Proposal Summary Box */}
+            <div className="rounded-2xl border border-caramel/30 bg-espresso-dark/90 p-6 text-xs space-y-3">
+              <span className="font-bold uppercase tracking-widest text-caramel-light block border-b border-caramel/20 pb-2">
+                Event Summary:
+              </span>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-cream/80">
+                <div>
+                  <span className="text-cream/50 block">Contact:</span>
+                  <strong>{formData.fullName}</strong> ({formData.email})
+                </div>
+                <div>
+                  <span className="text-cream/50 block">Phone:</span>
+                  <strong>{formData.phone}</strong>
+                </div>
+                <div>
+                  <span className="text-cream/50 block">Event Type & Date:</span>
+                  <strong className="text-caramel-light">{formData.eventType}</strong> — {formData.eventDate || "Date TBD"}
+                </div>
+                <div>
+                  <span className="text-cream/50 block">Location & Guests:</span>
+                  <strong>{formData.eventLocation || "TBD"}</strong> ({formData.guestCount})
+                </div>
+                <div>
+                  <span className="text-cream/50 block">Package Tier:</span>
+                  <strong className="capitalize text-caramel-light">{formData.preferredPackage.replace("-", " ")}</strong>
+                </div>
+                <div>
+                  <span className="text-cream/50 block">Duration:</span>
+                  <strong>{formData.serviceDuration}</strong>
+                </div>
               </div>
-
-              <div>
-                <label className="block text-xs font-bold uppercase tracking-wider text-caramel-light mb-1.5">
-                  Event Date *
-                </label>
-                <input
-                  type="date"
-                  name="eventDate"
-                  value={formData.eventDate}
-                  onChange={handleChange}
-                  className="w-full rounded-xl border border-caramel/30 bg-espresso-dark/90 px-4 py-3 text-sm text-cream focus:border-caramel focus:outline-none"
-                />
-                {errors.eventDate && (
-                  <p className="mt-1 text-[11px] text-red-400">{errors.eventDate}</p>
-                )}
-              </div>
-            </div>
-
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
-              <div>
-                <label className="block text-xs font-bold uppercase tracking-wider text-caramel-light mb-1.5">
-                  Start Time
-                </label>
-                <input
-                  type="time"
-                  name="startTime"
-                  value={formData.startTime}
-                  onChange={handleChange}
-                  className="w-full rounded-xl border border-caramel/30 bg-espresso-dark/90 px-4 py-3 text-sm text-cream focus:border-caramel focus:outline-none"
-                />
-              </div>
-
-              <div>
-                <label className="block text-xs font-bold uppercase tracking-wider text-caramel-light mb-1.5">
-                  End Time
-                </label>
-                <input
-                  type="time"
-                  name="endTime"
-                  value={formData.endTime}
-                  onChange={handleChange}
-                  className="w-full rounded-xl border border-caramel/30 bg-espresso-dark/90 px-4 py-3 text-sm text-cream focus:border-caramel focus:outline-none"
-                />
-              </div>
-
-              <div>
-                <label className="block text-xs font-bold uppercase tracking-wider text-caramel-light mb-1.5">
-                  Estimated Guests
-                </label>
-                <select
-                  name="guestCount"
-                  value={formData.guestCount}
-                  onChange={handleChange}
-                  className="w-full rounded-xl border border-caramel/30 bg-espresso-dark/90 px-4 py-3 text-sm text-cream focus:border-caramel focus:outline-none"
-                >
-                  <option value="Under 30 guests">Under 30 guests</option>
-                  <option value="30 - 60 guests">30 - 60 guests</option>
-                  <option value="60 - 120 guests">60 - 120 guests</option>
-                  <option value="120 - 200 guests">120 - 200 guests</option>
-                  <option value="200+ guests">200+ guests</option>
-                </select>
-              </div>
-            </div>
-
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-              <div>
-                <label className="block text-xs font-bold uppercase tracking-wider text-caramel-light mb-1.5">
-                  Location / City *
-                </label>
-                <input
-                  type="text"
-                  name="eventLocation"
-                  placeholder="e.g. Metro Manila / Tagaytay"
-                  value={formData.eventLocation}
-                  onChange={handleChange}
-                  className="w-full rounded-xl border border-caramel/30 bg-espresso-dark/90 px-4 py-3 text-sm text-cream placeholder-cream/40 focus:border-caramel focus:outline-none"
-                />
-                {errors.eventLocation && (
-                  <p className="mt-1 text-[11px] text-red-400">{errors.eventLocation}</p>
-                )}
-              </div>
-
-              <div>
-                <label className="block text-xs font-bold uppercase tracking-wider text-caramel-light mb-1.5">
-                  Venue Name (Optional)
-                </label>
-                <input
-                  type="text"
-                  name="venueName"
-                  placeholder="e.g. Grand Ballroom / Private Garden"
-                  value={formData.venueName}
-                  onChange={handleChange}
-                  className="w-full rounded-xl border border-caramel/30 bg-espresso-dark/90 px-4 py-3 text-sm text-cream placeholder-cream/40 focus:border-caramel focus:outline-none"
-                />
-              </div>
-            </div>
-          </div>
-        )}
-
-        {/* STEP 3: Coffee Preferences */}
-        {currentStep === 3 && (
-          <div className="space-y-5 animate-fade-in">
-            <h3 className="font-serif text-2xl font-bold text-cream">
-              Coffee & Package Preferences
-            </h3>
-            <p className="text-xs text-cream/70">
-              Select your desired package tier and beverage preferences.
-            </p>
-
-            <div>
-              <label className="block text-xs font-bold uppercase tracking-wider text-caramel-light mb-2">
-                Preferred Package Tier
-              </label>
-              <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
-                {packagesData.map((pkg) => (
-                  <button
-                    key={pkg.id}
-                    type="button"
-                    onClick={() =>
-                      setFormData((prev) => ({ ...prev, preferredPackage: pkg.id }))
-                    }
-                    className={`rounded-2xl border p-4 text-left transition-all ${
-                      formData.preferredPackage === pkg.id
-                        ? "border-caramel bg-caramel/20 text-cream ring-1 ring-caramel"
-                        : "border-caramel/20 bg-espresso-dark/60 text-cream/70 hover:border-caramel/40"
-                    }`}
-                  >
-                    <span className="font-serif text-sm font-bold block">{pkg.name}</span>
-                    <span className="text-[10px] text-caramel-light block mt-1">{pkg.guestCapacity}</span>
-                  </button>
-                ))}
-              </div>
-            </div>
-
-            <div>
-              <label className="block text-xs font-bold uppercase tracking-wider text-caramel-light mb-2">
-                Favorite Coffee Selections
-              </label>
-              <div className="grid grid-cols-2 sm:grid-cols-3 gap-2 text-xs">
-                {["Espresso", "Barako Latte", "Spanish Latte", "Caramel Cloud", "Americano", "Mocha"].map((item) => (
-                  <label
-                    key={item}
-                    className={`flex items-center gap-2 rounded-xl border p-2.5 cursor-pointer transition-colors ${
-                      formData.coffeeOptions.includes(item)
-                        ? "border-caramel bg-caramel/20 text-cream"
-                        : "border-caramel/20 bg-espresso-dark/60 text-cream/60"
-                    }`}
-                  >
-                    <input
-                      type="checkbox"
-                      checked={formData.coffeeOptions.includes(item)}
-                      onChange={() => handleCheckboxToggle("coffeeOptions", item)}
-                      className="accent-caramel"
-                    />
-                    <span>{item}</span>
-                  </label>
-                ))}
-              </div>
-            </div>
-
-            <div>
-              <label className="block text-xs font-bold uppercase tracking-wider text-caramel-light mb-2">
-                Non-Coffee & Milk Preferences
-              </label>
-              <div className="grid grid-cols-2 sm:grid-cols-3 gap-2 text-xs">
-                {["Ceremonial Matcha", "Dark Chocolate", "Spiced Chai", "Oat Milk Option", "Almond Milk"].map((item) => (
-                  <label
-                    key={item}
-                    className={`flex items-center gap-2 rounded-xl border p-2.5 cursor-pointer transition-colors ${
-                      formData.nonCoffeeOptions.includes(item)
-                        ? "border-caramel bg-caramel/20 text-cream"
-                        : "border-caramel/20 bg-espresso-dark/60 text-cream/60"
-                    }`}
-                  >
-                    <input
-                      type="checkbox"
-                      checked={formData.nonCoffeeOptions.includes(item)}
-                      onChange={() => handleCheckboxToggle("nonCoffeeOptions", item)}
-                      className="accent-caramel"
-                    />
-                    <span>{item}</span>
-                  </label>
-                ))}
-              </div>
-            </div>
-          </div>
-        )}
-
-        {/* STEP 4: Additional Information & Review */}
-        {currentStep === 4 && (
-          <div className="space-y-5 animate-fade-in">
-            <h3 className="font-serif text-2xl font-bold text-cream">
-              Final Details & Review
-            </h3>
-            <p className="text-xs text-cream/70">
-              Almost done! Share any special requests or branding details.
-            </p>
-
-            <div>
-              <label className="block text-xs font-bold uppercase tracking-wider text-caramel-light mb-1.5">
-                How did you hear about us?
-              </label>
-              <select
-                name="referralSource"
-                value={formData.referralSource}
-                onChange={handleChange}
-                className="w-full rounded-xl border border-caramel/30 bg-espresso-dark/90 px-4 py-3 text-sm text-cream focus:border-caramel focus:outline-none"
-              >
-                <option value="Instagram / Social Media">Instagram / Social Media</option>
-                <option value="Friend or Family Recommendation">Friend or Family Recommendation</option>
-                <option value="Wedding / Event Planner">Wedding / Event Planner</option>
-                <option value="Google Search">Google Search</option>
-                <option value="Attended a Previous BarakoBrews Event">Attended a Previous BarakoBrews Event</option>
-              </select>
             </div>
 
             <div>
@@ -565,26 +586,21 @@ export default function QuoteForm({
                 Special Requests or Notes (Optional)
               </label>
               <textarea
-                name="additionalNotes"
-                rows={4}
-                placeholder="Share any special branding requests, power setup details, custom cup sleeve logos, or venue access constraints..."
-                value={formData.additionalNotes}
+                name="specialRequests"
+                rows={3}
+                placeholder="Share any special branding requests, power setup details, custom cup sleeve logos..."
+                value={formData.specialRequests}
                 onChange={handleChange}
-                className="w-full rounded-xl border border-caramel/30 bg-espresso-dark/90 p-4 text-sm text-cream placeholder-cream/40 focus:border-caramel focus:outline-none"
+                className="w-full rounded-xl border border-caramel/30 bg-espresso-dark/90 p-3.5 text-xs text-cream placeholder-cream/40 focus:border-caramel focus:outline-none"
               />
             </div>
 
-            {/* Quick Review Summary Box */}
-            <div className="rounded-2xl border border-caramel/30 bg-espresso-dark/80 p-4 text-xs space-y-1">
-              <span className="font-bold uppercase tracking-wider text-caramel-light block mb-1">
-                Summary Review:
+            {/* Reassurance Note */}
+            <div className="flex items-center gap-2 rounded-2xl border border-caramel/20 bg-caramel/10 p-4 text-xs text-cream/80">
+              <ShieldCheck className="h-5 w-5 text-caramel shrink-0" />
+              <span>
+                <strong>No payment required.</strong> We'll review your event details and get back to you with a tailored proposal and availability.
               </span>
-              <p className="text-cream/80">
-                <strong className="text-cream">{formData.fullName}</strong> • {formData.email} • {formData.phone}
-              </p>
-              <p className="text-cream/80">
-                Event: <strong className="text-caramel-light">{formData.eventType}</strong> on {formData.eventDate || "Date TBD"} ({formData.guestCount}) at {formData.eventLocation || "Location TBD"}
-              </p>
             </div>
           </div>
         )}
@@ -604,11 +620,11 @@ export default function QuoteForm({
             <div />
           )}
 
-          {currentStep < 4 ? (
+          {currentStep < 5 ? (
             <button
               type="button"
               onClick={nextStep}
-              className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-caramel via-[#D99A66] to-caramel-dark px-8 py-3.5 text-xs font-bold uppercase tracking-widest text-espresso shadow-lg hover:scale-105 transition-all"
+              className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-caramel via-[#C49466] to-caramel-dark px-8 py-3.5 text-xs font-bold uppercase tracking-widest text-espresso shadow-lg hover:scale-105 transition-all"
             >
               <span>Continue</span>
               <ArrowRight className="h-4 w-4" />
@@ -617,9 +633,9 @@ export default function QuoteForm({
             <button
               type="submit"
               disabled={isSubmitting}
-              className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-caramel via-[#D99A66] to-caramel-dark px-9 py-4 text-xs font-bold uppercase tracking-widest text-espresso shadow-xl hover:scale-105 transition-all disabled:opacity-50"
+              className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-caramel via-[#C49466] to-caramel-dark px-9 py-4 text-xs font-bold uppercase tracking-widest text-espresso shadow-xl hover:scale-105 transition-all disabled:opacity-50"
             >
-              <span>{isSubmitting ? "Submitting..." : "REQUEST MY QUOTE"}</span>
+              <span>{isSubmitting ? "Submitting..." : "Request My Quote"}</span>
               <Sparkles className="h-4 w-4" />
             </button>
           )}

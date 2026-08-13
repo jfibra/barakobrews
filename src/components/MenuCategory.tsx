@@ -101,12 +101,14 @@ export default function MenuCategory() {
               )}
             </div>
 
-            {/* Tags */}
-            <div className="mt-4 pt-3 border-t border-caramel/10 flex items-center justify-between text-[11px]">
-              <div className="flex items-center gap-1.5 text-caramel font-medium">
-                <Coffee className="h-3.5 w-3.5" />
-                <span>Available Hot & Iced</span>
-              </div>
+            {/* Compact Visual Badges */}
+            <div className="mt-4 pt-3 border-t border-caramel/10 flex items-center gap-2">
+              <span className="inline-flex items-center gap-1 text-[10px] font-bold text-caramel-light bg-caramel/15 px-2.5 py-0.5 rounded-full border border-caramel/30">
+                🔥 Hot
+              </span>
+              <span className="inline-flex items-center gap-1 text-[10px] font-bold text-caramel-light bg-caramel/15 px-2.5 py-0.5 rounded-full border border-caramel/30">
+                🧊 Iced
+              </span>
             </div>
           </div>
         ))}

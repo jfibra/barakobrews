@@ -11,27 +11,27 @@ export const testimonialsData: TestimonialItem[] = [
   {
     id: "testimonial-1",
     quote:
-      "The BarakoBrews coffee cart was undoubtedly one of the highlights of our wedding reception. Our guests could not stop raving about the iced Spanish lattes!",
-    clientName: "Happy Client",
-    role: "Wedding Host",
+      "The BarakoBrews mobile coffee cart was the biggest hit at our Malibu coastal wedding reception! Our guests were lined up for iced Spanish Lattes and the Ube Lattes all evening.",
+    clientName: "Jessica & Marcus T.",
+    role: "Malibu Estate Wedding",
     eventType: "Wedding Reception",
     rating: 5,
   },
   {
     id: "testimonial-2",
     quote:
-      "Extremely professional baristas, beautiful setup, and top-tier coffee. It gave our corporate product launch a warm and sophisticated café vibe.",
-    clientName: "Happy Client",
-    role: "Event Coordinator",
-    eventType: "Corporate Launch",
+      "Exceptionally professional baristas, a gorgeous wooden cart setup, and top-tier specialty espresso. It gave our Irvine tech product launch an upscale coffee shop feel.",
+    clientName: "David Chen",
+    role: "Orange County Event Producer",
+    eventType: "Corporate Activation",
     rating: 5,
   },
   {
     id: "testimonial-3",
     quote:
-      "From the initial inquiry to the smooth setup and cleanup, BarakoBrews made our birthday gathering so special. The signature Barako Latte is a must-try!",
-    clientName: "Happy Client",
-    role: "Birthday Host",
+      "From seamless coordination to the effortless setup and breakdown in Palm Springs, BarakoBrews made our 30th birthday gathering unforgettable. The signature Barako Latte is incredible!",
+    clientName: "Samantha R.",
+    role: "Palm Springs Celebration Host",
     eventType: "Private Party",
     rating: 5,
   },

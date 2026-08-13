@@ -14,25 +14,25 @@ export default function Hero() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
           {/* Left Hero Text Column */}
           <div className="lg:col-span-7 space-y-8 text-center lg:text-left">
-            <div className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-[0.25em] text-caramel-light">
+            <div className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-[0.25em] text-caramel-light bg-caramel/10 border border-caramel/30 px-4 py-1.5 rounded-full backdrop-blur-md">
               <Sparkles className="h-4 w-4 text-caramel" />
-              <span>BARAKOBREWS • MOBILE COFFEE CATERING</span>
+              <span>BARAKOBREWS • SOUTHERN CALIFORNIA MOBILE COFFEE</span>
             </div>
 
-            <h1 className="font-serif text-5xl sm:text-6xl lg:text-7xl xl:text-8xl font-normal tracking-tight text-cream leading-[1.05]">
+            <h1 className="font-sans text-5xl sm:text-6xl lg:text-7xl xl:text-8xl font-extrabold tracking-tight text-cream leading-[1.05]">
               Coffee Worth <br className="hidden sm:block" />
-              <span className="italic font-serif text-caramel-light">Gathering For.</span>
+              <span className="font-sans text-caramel-light italic font-normal">Gathering For.</span>
             </h1>
 
-            <p className="text-base sm:text-lg lg:text-xl text-cream/80 leading-relaxed max-w-xl mx-auto lg:mx-0">
-              A premium mobile coffee experience, crafted for weddings, celebrations, corporate events, and unforgettable gatherings.
+            <p className="text-base sm:text-lg lg:text-xl text-cream/80 leading-relaxed max-w-xl mx-auto lg:mx-0 font-normal">
+              Southern California's premier mobile espresso bar catering weddings, brand activations, and private events with specialty coffee & modern Filipino brews.
             </p>
 
             {/* CTA Buttons */}
-            <div className="pt-4 flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4">
+            <div className="pt-2 flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4">
               <Link
                 href="/get-a-quote"
-                className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 rounded-full bg-gradient-to-r from-caramel via-[#D2925B] to-caramel-dark px-9 py-4 text-xs font-bold uppercase tracking-widest text-espresso shadow-xl shadow-caramel/20 transition-all duration-300 hover:shadow-caramel/40 hover:scale-105"
+                className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 rounded-full bg-gradient-to-r from-caramel via-[#C49466] to-caramel-dark px-9 py-4 text-xs font-bold uppercase tracking-widest text-espresso shadow-xl shadow-caramel/20 transition-all duration-300 hover:shadow-caramel/40 hover:scale-105"
               >
                 <span>Get a Quote</span>
                 <ArrowRight className="h-4 w-4" />
@@ -41,25 +41,34 @@ export default function Hero() {
                 href="/services"
                 className="w-full sm:w-auto inline-flex items-center justify-center gap-2 rounded-full border border-caramel/40 bg-espresso/60 px-8 py-4 text-xs font-bold uppercase tracking-widest text-cream backdrop-blur-md transition-all duration-300 hover:border-caramel hover:bg-caramel/20 hover:text-caramel-light"
               >
-                <span>Explore Services</span>
+                <span>Explore Our Services</span>
               </Link>
+            </div>
+
+            {/* Trust Statement */}
+            <div className="pt-2 text-xs font-medium text-cream/60 tracking-wider flex items-center justify-center lg:justify-start gap-2">
+              <span>Weddings</span>
+              <span className="text-caramel">•</span>
+              <span>Corporate Events</span>
+              <span className="text-caramel">•</span>
+              <span>Private Celebrations</span>
             </div>
           </div>
 
           {/* Right Hero Visual Column */}
           <div className="lg:col-span-5">
             <div className="relative">
-              <div className="absolute -inset-4 rounded-2xl bg-gradient-to-r from-caramel/20 via-caramel-dark/10 to-transparent blur-xl pointer-events-none" />
+              <div className="absolute -inset-4 rounded-3xl bg-gradient-to-r from-caramel/20 via-caramel-dark/10 to-transparent blur-xl pointer-events-none" />
 
               <PlaceholderImage
-                label="BARAKOBREWS MOBILE COFFEE CART AT ELEGANT EVENT"
-                src="/images/hero/hero_mobile_cart.png"
-                subtext="Professional barista preparing fresh espresso and poured latte art at a wedding reception."
-                aspectRatio="4/3"
-                category="HERO PHOTOGRAPHY"
-                dimensions="1200 x 900"
+                label="REAL ELEGANT WEDDING MOBILE COFFEE CART"
+                src="/images/services/wedding_catering_real.jpg"
+                subtext="BarakoBrews mobile espresso & matcha cart setup with floral arches at an evening outdoor reception."
+                aspectRatio="3/4"
+                category="REAL EVENT PHOTOGRAPHY"
+                dimensions="1200 x 1600"
                 icon="coffee"
-                className="shadow-2xl border-caramel/30 rounded-2xl"
+                className="shadow-2xl border-caramel/30 rounded-3xl"
               />
             </div>
           </div>

@@ -66,17 +66,17 @@ export default function GalleryGrid() {
               icon="camera"
             />
 
-            {/* Hover Expand Overlay */}
-            <div className="absolute inset-0 flex flex-col items-center justify-end bg-gradient-to-t from-espresso-dark/90 via-espresso/40 to-transparent p-6 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
-              <div className="flex h-10 w-10 items-center justify-center rounded-full bg-caramel text-espresso shadow-lg mb-2 transform translate-y-4 transition-transform duration-300 group-hover:translate-y-0">
+            {/* Hover Overlay */}
+            <div className="absolute inset-0 flex flex-col items-center justify-end bg-gradient-to-t from-espresso-dark/95 via-espresso/50 to-transparent p-6 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
+              <div className="flex h-10 w-10 items-center justify-center rounded-full bg-caramel text-espresso shadow-lg mb-3 transform translate-y-4 transition-transform duration-300 group-hover:translate-y-0">
                 <Maximize2 className="h-5 w-5" />
               </div>
-              <h4 className="font-serif text-base font-bold text-cream text-center">
+              <span className="text-[10px] font-bold uppercase tracking-widest text-caramel-light bg-caramel/20 px-3 py-0.5 rounded-full border border-caramel/30 mb-1">
+                {item.category}
+              </span>
+              <h4 className="font-sans text-base font-bold text-cream text-center">
                 {item.title}
               </h4>
-              <span className="text-[10px] font-mono text-caramel-light uppercase tracking-widest mt-1">
-                Click to Expand Lightbox
-              </span>
             </div>
           </div>
         ))}

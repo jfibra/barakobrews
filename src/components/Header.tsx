@@ -30,19 +30,19 @@ export default function Header() {
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         isScrolled
-          ? "bg-espresso/95 backdrop-blur-md border-b border-caramel/20 py-3.5 shadow-xl"
-          : "bg-gradient-to-b from-espresso-dark/90 via-espresso-dark/60 to-transparent py-5"
+          ? "bg-espresso-dark/95 backdrop-blur-xl border-b border-caramel/35 py-3 shadow-2xl"
+          : "bg-espresso-dark/90 backdrop-blur-lg border-b border-caramel/20 py-4 shadow-xl"
       }`}
     >
       <div className="mx-auto flex max-w-7xl items-center justify-between px-6 sm:px-8 lg:px-12">
         {/* Logo */}
-        <Logo theme="dark" showSubtitle={!isScrolled} />
+        <Logo theme="dark" showSubtitle={true} />
 
         {/* Desktop Navigation */}
         <nav className="hidden items-center gap-1 md:flex" aria-label="Main Navigation">
-          <div className="flex items-center gap-1 rounded-full border border-caramel/20 bg-espresso/60 px-3 py-1.5 backdrop-blur-md">
+          <div className="flex items-center gap-1.5 rounded-full border border-caramel/30 bg-espresso/80 px-4 py-1.5 backdrop-blur-md shadow-inner">
             {navLinks.map((link) => {
               const isActive = pathname === link.href;
               return (

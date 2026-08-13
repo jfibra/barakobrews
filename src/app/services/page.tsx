@@ -1,115 +1,108 @@
 import React from "react";
 import Link from "next/link";
 import SectionHeading from "@/components/SectionHeading";
-import ServiceCard from "@/components/ServiceCard";
 import CTASection from "@/components/CTASection";
-import PlaceholderImage from "@/components/PlaceholderImage";
 import { servicesData } from "@/data/services";
-import { CheckCircle2, ArrowRight } from "lucide-react";
+import { CheckCircle2, ArrowRight, Sparkles } from "lucide-react";
 
 export const metadata = {
-  title: "Coffee Catering Services — BarakoBrews",
+  title: "Coffee Catering Services | BarakoBrews",
   description:
-    "Explore our mobile coffee catering services for weddings, corporate events, private parties, brand activations, and custom celebrations.",
+    "Explore our mobile coffee catering services for weddings, corporate events, private parties, brand activations, conferences, and custom celebrations.",
 };
 
 export default function ServicesPage() {
   return (
-    <div className="pt-28 pb-20 space-y-20">
+    <div className="pt-28 pb-20 space-y-20 font-sans">
       {/* Header Banner */}
-      <section className="relative bg-[url('/images/bg/cta_bg_event.png')] bg-cover bg-center py-20 text-cream border-b border-caramel/20">
-        <div className="absolute inset-0 bg-espresso-dark/95 backdrop-blur-[1px]" />
+      <section className="relative bg-espresso-dark py-20 text-cream border-b border-caramel/20">
         <div className="relative z-10 mx-auto max-w-7xl px-6 sm:px-8 lg:px-12 text-center space-y-4">
-          <span className="inline-block rounded-full border border-caramel/30 bg-espresso/80 px-4 py-1 text-xs font-bold uppercase tracking-widest text-caramel-light">
-            Our Offerings
+          <span className="inline-block rounded-full border border-caramel/30 bg-caramel/10 px-4 py-1 text-xs font-bold uppercase tracking-widest text-caramel-light">
+            OUR OFFERINGS
           </span>
-          <h1 className="font-serif text-4xl sm:text-5xl font-bold tracking-tight text-cream">
-            COFFEE FOR EVERY OCCASION
+          <h1 className="font-sans text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-cream">
+            Coffee for every occasion.
           </h1>
-          <p className="text-base sm:text-lg text-cream/70 max-w-2xl mx-auto">
-            From intimate wedding ceremonies to high-volume multi-day corporate conferences, BarakoBrews delivers an extraordinary mobile café experience.
+          <p className="text-base sm:text-lg text-cream/80 max-w-2xl mx-auto font-normal leading-relaxed">
+            From intimate wedding receptions to multi-day corporate summits, BarakoBrews brings an extraordinary mobile café experience to your venue.
           </p>
         </div>
       </section>
 
-      {/* Main Grid */}
+      {/* 6 Service Experiences Grid */}
       <section className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 space-y-12">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {servicesData.map((service) => (
-            <ServiceCard key={service.id} service={service} />
-          ))}
-        </div>
-      </section>
-
-      {/* Deep Dive Breakdown */}
-      <section className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 space-y-16">
-        <SectionHeading
-          eyebrow="Specialized Catering"
-          title="TAILORED TO YOUR EVENT VISION"
-          subtitle="Learn how we adapt our setup, menu, and service style to match your specific celebration."
-        />
-
-        {servicesData.map((service, index) => (
-          <div
-            key={service.id}
-            id={service.id}
-            className={`grid grid-cols-1 lg:grid-cols-12 gap-10 items-center rounded-3xl border border-caramel/20 p-8 sm:p-12 ${
-              index % 2 === 0 ? "bg-cream" : "bg-cream-dark"
-            }`}
-          >
             <div
-              className={`lg:col-span-6 space-y-6 ${
-                index % 2 === 1 ? "lg:order-2" : ""
-              }`}
+              key={service.id}
+              id={service.id}
+              className="group relative flex flex-col justify-between overflow-hidden rounded-3xl border border-beige bg-cream-dark p-6 shadow-sm transition-all duration-300 hover:border-caramel/50 hover:shadow-xl"
             >
-              <span className="text-xs font-bold uppercase tracking-widest text-caramel-dark bg-caramel/10 border border-caramel/20 px-3 py-1 rounded-full">
-                {service.category}
-              </span>
-              <h2 className="font-serif text-3xl font-bold text-espresso">
-                {service.title}
-              </h2>
-              <p className="text-sm text-text-muted leading-relaxed">
-                {service.fullDescription}
-              </p>
+              <div className="space-y-6">
+                <div className="overflow-hidden rounded-2xl border border-beige aspect-[4/3]">
+                  <img
+                    src={service.src || "/images/services/wedding_catering_real.jpg"}
+                    alt={service.title}
+                    className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                  />
+                </div>
 
-              <div className="space-y-2">
-                <p className="text-xs font-bold uppercase tracking-wider text-caramel-dark">
-                  Service Highlights:
-                </p>
-                <ul className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs">
-                  {service.features.map((feat, i) => (
-                    <li key={i} className="flex items-center gap-2 text-text-main font-medium">
-                      <CheckCircle2 className="h-4 w-4 text-caramel-dark shrink-0" />
+                <div className="space-y-3">
+                  <span className="text-[10px] font-bold uppercase tracking-widest text-caramel-dark bg-caramel/10 border border-caramel/20 px-3 py-1 rounded-full">
+                    {service.category}
+                  </span>
+                  <h3 className="font-sans text-2xl font-bold text-espresso">
+                    {service.title}
+                  </h3>
+                  <p className="text-xs text-text-muted leading-relaxed font-normal">
+                    {service.shortDescription}
+                  </p>
+                </div>
+
+                {/* 3 Core Benefits */}
+                <div className="space-y-2 pt-2 border-t border-beige">
+                  {service.features.slice(0, 3).map((feat, idx) => (
+                    <div key={idx} className="flex items-center gap-2 text-xs font-medium text-text-main">
+                      <CheckCircle2 className="h-3.5 w-3.5 text-caramel-dark shrink-0" />
                       <span>{feat}</span>
-                    </li>
+                    </div>
                   ))}
-                </ul>
+                </div>
               </div>
 
-              <div className="pt-2">
+              <div className="mt-6 pt-4 border-t border-beige">
                 <Link
-                  href={`/quote?service=${service.id}`}
-                  className="inline-flex items-center gap-2 rounded-full bg-espresso px-6 py-3 text-xs font-bold uppercase tracking-widest text-cream hover:bg-caramel hover:text-espresso transition-all"
+                  href={`/get-a-quote?service=${service.id}`}
+                  className="w-full inline-flex items-center justify-center gap-2 rounded-full bg-espresso py-3 text-xs font-bold uppercase tracking-widest text-cream hover:bg-caramel hover:text-espresso transition-all"
                 >
                   <span>Book {service.title}</span>
                   <ArrowRight className="h-4 w-4" />
                 </Link>
               </div>
             </div>
+          ))}
+        </div>
+      </section>
 
-            <div className={`lg:col-span-6 ${index % 2 === 1 ? "lg:order-1" : ""}`}>
-              <PlaceholderImage
-                label={service.imageLabel}
-                subtext={service.shortDescription}
-                aspectRatio="4/3"
-                category={service.category}
-                dimensions="1200 x 900"
-                icon="coffee"
-                className="shadow-xl"
-              />
-            </div>
+      {/* Single Visual Closing Banner */}
+      <section className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div className="rounded-3xl border border-caramel/30 bg-espresso p-8 sm:p-12 text-cream text-center space-y-6 shadow-2xl">
+          <Sparkles className="h-8 w-8 text-caramel mx-auto" />
+          <h2 className="font-sans text-3xl sm:text-4xl font-extrabold max-w-2xl mx-auto">
+            Whatever the occasion, we'll build the coffee experience around it.
+          </h2>
+          <p className="text-xs sm:text-sm text-cream/70 max-w-xl mx-auto font-normal">
+            Need a custom cup stamp logo, bespoke latte flavor, or special event hours? Tell us about your event and we'll craft a custom proposal.
+          </p>
+          <div className="pt-2">
+            <Link
+              href="/get-a-quote"
+              className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-caramel to-caramel-dark px-8 py-3.5 text-xs font-bold uppercase tracking-widest text-espresso shadow-lg hover:scale-105 transition-all"
+            >
+              <span>Get a Quote →</span>
+            </Link>
           </div>
-        ))}
+        </div>
       </section>
 
       {/* CTA Section */}

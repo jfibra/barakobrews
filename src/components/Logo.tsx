@@ -24,10 +24,12 @@ export default function Logo({
         className={`inline-flex items-center gap-2 group ${className}`}
         aria-label="BarakoBrews Homepage"
       >
-        <div className="relative flex h-10 w-10 items-center justify-center rounded-xl bg-gradient-to-br from-caramel via-[#A87042] to-espresso-dark p-[1px] shadow-md transition-transform duration-300 group-hover:scale-105">
-          <div className="flex h-full w-full items-center justify-center rounded-[11px] bg-espresso px-2 py-1 font-serif text-sm font-bold tracking-widest text-caramel-light">
-            BB
-          </div>
+        <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-espresso-dark border border-caramel/40 shadow-md transition-all group-hover:border-caramel">
+          <img
+            src="/images/logo/logo-barako-icon.png"
+            alt="BarakoBrews Icon Mark"
+            className="h-7 w-auto object-contain transition-transform duration-300 group-hover:scale-105"
+          />
         </div>
       </Link>
     );
@@ -39,27 +41,27 @@ export default function Logo({
       className={`inline-flex items-center gap-3 group transition-opacity hover:opacity-95 ${className}`}
       aria-label="BarakoBrews Mobile Coffee Catering"
     >
-      {/* Monogram Badge */}
-      <div className="relative flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-gradient-to-br from-caramel via-[#B57C4B] to-espresso p-[1px] shadow-md transition-transform duration-300 group-hover:scale-105">
-        <div className="flex h-full w-full items-center justify-center rounded-[11px] bg-espresso text-sm font-bold tracking-widest text-caramel-light font-serif">
-          BB
-        </div>
+      {/* Official B Mark Icon Badge */}
+      <div className="flex h-10 w-10 sm:h-11 sm:w-11 shrink-0 items-center justify-center rounded-xl bg-gradient-to-br from-[#3D2012] to-espresso-dark border border-caramel/40 shadow-md group-hover:border-caramel transition-all">
+        <img
+          src="/images/logo/logo-barako-icon.png"
+          alt="BarakoBrews Icon Mark"
+          className="h-7 sm:h-8 w-auto object-contain filter drop-shadow-[0_2px_4px_rgba(175,129,85,0.4)] transition-transform duration-300 group-hover:scale-110"
+        />
       </div>
 
       {/* Typography Wordmark */}
       <div className="flex flex-col">
         <span
-          className={`font-serif text-xl font-bold tracking-tight leading-none ${
-            isDarkTheme ? "text-cream" : "text-espresso"
-          }`}
+          className={`font-sans text-xl sm:text-2xl font-extrabold tracking-tight leading-none ${isDarkTheme ? "text-cream" : "text-espresso"
+            }`}
         >
           Barako<span className="text-caramel">Brews</span>
         </span>
         {showSubtitle && (
           <span
-            className={`text-[9px] font-medium uppercase tracking-[0.25em] mt-1 ${
-              isDarkTheme ? "text-cream/60" : "text-text-muted"
-            }`}
+            className={`text-[8.5px] sm:text-[9.5px] font-semibold uppercase tracking-[0.25em] mt-1 ${isDarkTheme ? "text-caramel-light/90" : "text-caramel-dark"
+              }`}
           >
             Mobile Coffee Catering
           </span>

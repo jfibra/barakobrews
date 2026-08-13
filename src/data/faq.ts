@@ -2,14 +2,17 @@ export interface FAQItem {
   id: string;
   question: string;
   answer: string;
-  category: "booking" | "service" | "menu" | "logistics";
+  category: "booking" | "pricing" | "menu" | "setup" | "venue" | "event-day";
 }
 
 export const faqCategories = [
   { id: "all", label: "All Questions" },
-  { id: "booking", label: "Booking & Pricing" },
-  { id: "service", label: "Service & Menu" },
-  { id: "logistics", label: "Setup & Requirements" },
+  { id: "booking", label: "Booking" },
+  { id: "pricing", label: "Pricing" },
+  { id: "menu", label: "Menu" },
+  { id: "setup", label: "Setup" },
+  { id: "venue", label: "Venue" },
+  { id: "event-day", label: "Event Day" },
 ];
 
 export const faqData: FAQItem[] = [
@@ -17,36 +20,36 @@ export const faqData: FAQItem[] = [
     id: "travel-distance",
     question: "How far do you travel?",
     answer:
-      "We serve events within our primary service area and can travel across neighboring regions. Travel fees may apply depending on the venue location and distance. Please share your event location when requesting a quote for exact coverage details.",
-    category: "logistics",
+      "We serve events within Metro regions and surrounding provinces. Travel fees may apply depending on the venue location and distance. Please share your event location when requesting a quote for exact coverage details.",
+    category: "venue",
   },
   {
     id: "guest-count",
     question: "How many guests can you serve?",
     answer:
       "Our packages range from intimate gatherings of 30-50 guests up to large scale events with 300+ attendees. For large crowds, we deploy multi-barista stations to keep queue waiting times minimal.",
-    category: "service",
+    category: "event-day",
   },
   {
     id: "service-duration",
     question: "How long is the coffee service?",
     answer:
       "Standard service packages range from 2 to 5 hours of continuous brewing. Additional hours can easily be added to any package upon request.",
-    category: "service",
+    category: "event-day",
   },
   {
     id: "cart-equipment",
     question: "Do you provide the coffee cart and equipment?",
     answer:
       "Yes! BarakoBrews brings the complete setup — including our custom mobile bar cart, commercial espresso machine, grinders, water filtration system, paper cups, milk jugs, and setup styling accessories.",
-    category: "logistics",
+    category: "setup",
   },
   {
     id: "barista-staff",
     question: "Do you provide professional baristas?",
     answer:
       "Absolutely. Every booking includes trained, friendly, and professionally dressed baristas who manage setup, continuous beverage crafting, customer interaction, and post-event cleanup.",
-    category: "service",
+    category: "event-day",
   },
   {
     id: "menu-customize",
@@ -66,8 +69,8 @@ export const faqData: FAQItem[] = [
     id: "cost-pricing",
     question: "How much does coffee catering cost?",
     answer:
-      "Pricing depends on guest count, service duration, location, and drink menu selections. Our packages start at configurable rates (₱XX,XXX). Request a custom quote to get a detailed breakdown tailored to your event.",
-    category: "booking",
+      "Pricing depends on guest count, service duration, location, and drink menu selections. Our packages start at affordable tier rates tailored to your event size. Request a custom quote to get a detailed breakdown.",
+    category: "pricing",
   },
   {
     id: "advance-booking",
@@ -81,25 +84,25 @@ export const faqData: FAQItem[] = [
     question: "Do you require a reservation deposit?",
     answer:
       "Yes, a standard reservation deposit is required upon booking confirmation to secure your date, with the remaining balance due prior to or on the event day.",
-    category: "booking",
+    category: "pricing",
   },
   {
     id: "outdoor-events",
     question: "Can you cater outdoor events?",
     answer:
       "Yes! Our mobile bar cart is designed for both indoor ballrooms and sheltered outdoor setups (garden weddings, lawn parties, patio celebrations). A level surface and overhead shade/cover are required.",
-    category: "logistics",
+    category: "venue",
   },
   {
     id: "power-requirements",
-    question: "What happens if our event location has no power?",
+    question: "What power supply do you require?",
     answer:
       "Our standard espresso equipment requires a standard dedicated electrical outlet (220V/15A-20A circuit). If your outdoor venue lacks power, please notify us during quote request so we can arrange portable generator power options.",
-    category: "logistics",
+    category: "setup",
   },
   {
     id: "custom-packages",
-    question: "Can we request a custom package?",
+    question: "Can I request a custom package?",
     answer:
       "Yes! If your event does not fit our standard package tiers, we will happily design a bespoke package for your exact guest count, time frame, and branding requirements.",
     category: "booking",

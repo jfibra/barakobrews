@@ -75,12 +75,15 @@ export default function LightboxModal({
           />
         </div>
 
-        {/* Caption */}
-        <div className="flex items-center justify-between pt-2 text-xs text-cream/70">
-          <p>{item.subtext}</p>
-          <span className="font-mono text-[10px] text-caramel-light">
-            [ Placeholder Lightbox Asset View ]
-          </span>
+        {/* Caption & CTA */}
+        <div className="flex flex-col sm:flex-row items-center justify-between gap-3 pt-3 border-t border-caramel/20 text-xs text-cream/70">
+          <p className="text-center sm:text-left">{item.subtext}</p>
+          <a
+            href="/get-a-quote"
+            className="shrink-0 inline-flex items-center gap-2 rounded-full bg-caramel px-5 py-2 text-[11px] font-bold uppercase tracking-wider text-espresso hover:bg-caramel-light transition-all shadow-md"
+          >
+            <span>Want this experience at your event? Get a Quote →</span>
+          </a>
         </div>
 
         {/* Prev / Next Navigation Controls */}

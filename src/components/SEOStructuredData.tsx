@@ -7,20 +7,40 @@ export default function SEOStructuredData() {
     "@type": "CateringService",
     name: businessInfo.name,
     description: businessInfo.subtagline,
-    url: "https://barakobrews.com",
+    url: "https://barakobrews.vercel.app",
     telephone: businessInfo.phone,
     email: businessInfo.email,
-    servesCuisine: "Specialty Coffee, Kapeng Barako, Espresso",
+    servesCuisine: "Specialty Coffee, Modern Filipino Espresso, Kapeng Barako, Ube Lattes",
     priceRange: "$$",
-    areaServed: {
-      "@type": "AdministrativeArea",
-      name: businessInfo.serviceArea,
+    address: {
+      "@type": "PostalAddress",
+      "addressRegion": "CA",
+      "addressCountry": "US",
     },
+    areaServed: [
+      {
+        "@type": "AdministrativeArea",
+        name: "Southern California",
+      },
+      {
+        "@type": "City",
+        name: "Los Angeles",
+      },
+      {
+        "@type": "City",
+        name: "Orange County",
+      },
+      {
+        "@type": "City",
+        name: "San Diego",
+      },
+    ],
     knowsAbout: [
       "Mobile Coffee Cart Catering",
-      "Wedding Coffee Bar",
-      "Corporate Coffee Catering",
-      "Specialty Espresso Service",
+      "Southern California Wedding Coffee Bar",
+      "SoCal Corporate Coffee Catering",
+      "Specialty Espresso Bar",
+      "Ube & Barako Specialty Lattes",
     ],
   };
 

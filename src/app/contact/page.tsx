@@ -7,26 +7,25 @@ import { businessInfo } from "@/data/config";
 import { Phone, Mail, MapPin, Clock, ArrowRight } from "lucide-react";
 
 export const metadata = {
-  title: "Contact Us — BarakoBrews Mobile Coffee Catering",
+  title: "Contact Us — BarakoBrews Mobile Coffee Catering SoCal",
   description:
-    "Get in touch with BarakoBrews for mobile coffee catering inquiries, venue site checks, and custom event partnerships.",
+    "Get in touch with BarakoBrews for mobile coffee catering inquiries across Southern California (Los Angeles, Orange County, San Diego).",
 };
 
 export default function ContactPage() {
   return (
-    <div className="pt-28 pb-20 space-y-20">
+    <div className="pt-28 pb-20 space-y-20 font-sans">
       {/* Header Banner */}
-      <section className="relative bg-[url('/images/bg/cta_bg_event.png')] bg-cover bg-center py-20 text-cream border-b border-caramel/20">
-        <div className="absolute inset-0 bg-espresso-dark/95 backdrop-blur-[1px]" />
+      <section className="relative bg-espresso-dark py-20 text-cream border-b border-caramel/20">
         <div className="relative z-10 mx-auto max-w-7xl px-6 sm:px-8 lg:px-12 text-center space-y-4">
-          <span className="inline-block rounded-full border border-caramel/30 bg-espresso/80 px-4 py-1 text-xs font-bold uppercase tracking-widest text-caramel-light">
-            Get In Touch
+          <span className="inline-block rounded-full border border-caramel/30 bg-caramel/10 px-4 py-1 text-xs font-bold uppercase tracking-widest text-caramel-light">
+            GET IN TOUCH
           </span>
-          <h1 className="font-serif text-4xl sm:text-5xl font-bold tracking-tight text-cream">
-            LET'S BREW SOMETHING SPECIAL
+          <h1 className="font-sans text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-cream">
+            Let's brew something special.
           </h1>
-          <p className="text-base sm:text-lg text-cream/70 max-w-2xl mx-auto">
-            Have questions about date availability, custom menus, or location coverage? We're here to help.
+          <p className="text-base sm:text-lg text-cream/80 max-w-2xl mx-auto font-normal leading-relaxed">
+            Have questions about date availability, custom menus, or SoCal venue coverage? We're here to help.
           </p>
         </div>
       </section>
@@ -37,7 +36,7 @@ export default function ContactPage() {
           {/* Left Column: Contact Cards */}
           <div className="lg:col-span-5 space-y-8">
             <div className="rounded-3xl border border-caramel/30 bg-espresso p-8 text-cream shadow-2xl space-y-6">
-              <h3 className="font-serif text-2xl font-bold">Contact Details</h3>
+              <h3 className="font-sans text-2xl font-bold">Contact details</h3>
 
               <div className="space-y-4 text-sm">
                 <div className="flex items-start gap-4">
@@ -113,32 +112,27 @@ export default function ContactPage() {
               </div>
             </div>
 
-            {/* Placeholder Map Container */}
+            {/* Southern California Coverage Map Card */}
             <div className="rounded-3xl border border-caramel/20 bg-cream p-6 shadow-lg space-y-3">
               <span className="text-xs font-bold uppercase tracking-widest text-caramel-dark block">
-                Service Area Map Preview
+                Southern California Service Coverage
               </span>
-              <PlaceholderImage
-                label="SERVICE AREA COVERAGE MAP PLACEHOLDER"
-                subtext="Map preview showing event service region boundaries."
-                aspectRatio="16/9"
-                category="COVERAGE REGION"
-                dimensions="800 x 450"
-                icon="camera"
-              />
+              <p className="text-xs text-text-muted leading-relaxed">
+                We cater across <strong>Los Angeles, Orange County, San Diego, Inland Empire, Malibu, Newport Beach, Palm Springs, and Pasadena</strong>.
+              </p>
             </div>
           </div>
 
           {/* Right Column: General Message Inquiry Form */}
           <div className="lg:col-span-7">
             <div className="rounded-3xl border border-caramel/20 bg-cream p-8 sm:p-10 shadow-xl space-y-6">
-              <h3 className="font-serif text-2xl font-bold text-espresso">
-                Send a General Message
+              <h3 className="font-sans text-2xl font-bold text-espresso">
+                Send a general message
               </h3>
               <p className="text-xs text-text-muted">
-                Looking for a quick quote for an upcoming event? You can also use our dedicated{" "}
-                <a href="/quote" className="text-caramel-dark font-bold underline">
-                  Multi-Step Quote Form
+                Looking for an instant event proposal? Use our interactive{" "}
+                <a href="/get-a-quote" className="text-caramel-dark font-bold underline">
+                  5-Step Concierge Quote Form
                 </a>
                 .
               </p>

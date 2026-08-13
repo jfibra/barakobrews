@@ -19,7 +19,7 @@ export const servicesData: ServiceItem[] = [
     fullDescription:
       "Elevate your special day with an artisan espresso bar. Our sleek mobile setup blends seamlessly into your wedding aesthetic, offering handcrafted lattes and signature drinks that keep guests warm, energized, and gathered together.",
     imageLabel: "WEDDING COFFEE CART PHOTOGRAPHY",
-    src: "/images/services/wedding_catering.png",
+    src: "/images/services/wedding_catering_real.jpg",
     category: "Weddings & Receptions",
     iconName: "Heart",
     features: [
@@ -31,13 +31,13 @@ export const servicesData: ServiceItem[] = [
   },
   {
     id: "corporate",
-    title: "Corporate Events",
+    title: "Corporate & Resort Events",
     shortDescription:
-      "Professional coffee catering for meetings, conferences, launches, and company events.",
+      "Professional coffee catering for meetings, golf outings, conferences, and resort activations.",
     fullDescription:
-      "Impress clients, reward employees, and fuel productive meetings with high-quality specialty coffee. We provide rapid, professional service designed to handle corporate volume with ease.",
-    imageLabel: "CORPORATE EVENT COFFEE BAR PHOTOGRAPHY",
-    src: "/images/services/corporate_event.png",
+      "Impress clients, reward employees, and fuel productive gatherings with high-quality specialty coffee. We provide rapid, professional service designed to handle corporate volume with ease.",
+    imageLabel: "RESORT & GOLF COURSE COFFEE CART",
+    src: "/images/services/resort_golf_cart.jpg",
     category: "Corporate Catering",
     iconName: "Briefcase",
     features: [
@@ -49,49 +49,49 @@ export const servicesData: ServiceItem[] = [
   },
   {
     id: "private-parties",
-    title: "Private Parties",
+    title: "Outdoor & Wellness Gatherings",
     shortDescription:
-      "Bring a mobile café experience to birthdays, anniversaries, reunions, and celebrations.",
+      "Bring a mobile café experience to morning retreats, birthday lawn parties, and picnics.",
     fullDescription:
-      "Turn your home or venue into a cozy, interactive coffee haven. Perfect for milestone birthdays, baby showers, housewarmings, and family reunions.",
-    imageLabel: "PRIVATE PARTY MOBILE BAR PHOTOGRAPHY",
-    src: "/images/hero/hero_mobile_cart.png",
-    category: "Private Gatherings",
+      "Turn your lawn, garden, or park venue into an interactive coffee haven. Perfect for outdoor celebrations, yoga mornings, milestone birthdays, and family reunions.",
+    imageLabel: "OUTDOOR LAWN MOBILE COFFEE CART",
+    src: "/images/services/outdoor_yoga_cart.jpg",
+    category: "Outdoor Gatherings",
     iconName: "PartyPopper",
     features: [
-      "Flexible footprint for indoor & outdoor setups",
-      "Kid-friendly non-coffee options (Matcha, Chocolate)",
+      "Flexible footprint for park & lawn setups",
+      "Kid-friendly & non-coffee options (Matcha, Chocolate)",
       "Warm, interactive barista service",
-      "Zero hassle — we supply everything",
+      "Zero hassle — we supply umbrella, cart & power",
     ],
   },
   {
     id: "brand-events",
-    title: "Brand Events",
+    title: "Night & Evening Celebrations",
     shortDescription:
-      "Create an interactive coffee experience for launches, activations, and promotional events.",
+      "Illuminated canopy tent coffee bar for evening galas, brand launches, and nighttime parties.",
     fullDescription:
-      "Transform coffee into a high-engagement branding touchpoint. Custom cups, custom menu naming, and branded cart wraps create memorable social-media-ready moments for your guests.",
-    imageLabel: "BRAND ACTIVATION COFFEE CART PHOTOGRAPHY",
-    src: "/images/services/corporate_event.png",
-    category: "Brand Activations",
+      "Transform coffee into a high-engagement nighttime focal point. Warm string lights, custom illuminated menu boards, and custom recipes create unforgettable evening moments.",
+    imageLabel: "NIGHT CANOPY EVENT COFFEE CART",
+    src: "/images/hero/night_tent_setup.jpg",
+    category: "Evening Celebrations",
     iconName: "Sparkles",
     features: [
-      "Custom logo printed on cups & sleeves",
-      "Bespoke signature drinks matching brand colors",
+      "Illuminated menu board & ambient lighting",
+      "Bespoke signature drinks matching event theme",
       "Social-media ready visual presentation",
-      "High throughput for large foot traffic",
+      "High throughput for late-night guest energizing",
     ],
   },
   {
     id: "conferences",
-    title: "Conferences",
+    title: "Conferences & Summits",
     shortDescription:
       "Keep guests energized and engaged throughout your event.",
     fullDescription:
       "Sustain attendee energy through multi-day summits, trade shows, and breakout sessions. Efficient high-capacity espresso bar setup ensures quick queue turnaround times.",
     imageLabel: "CONFERENCE COFFEE SERVICE PHOTOGRAPHY",
-    src: "/images/services/corporate_event.png",
+    src: "/images/services/resort_golf_cart.jpg",
     category: "Seminars & Summits",
     iconName: "Users",
     features: [
@@ -109,7 +109,7 @@ export const servicesData: ServiceItem[] = [
     fullDescription:
       "Have a unique theme, location, or requirement? We collaborate closely with event planners to build a tailored mobile coffee activation that fits your exact vision.",
     imageLabel: "CUSTOM COFFEE EXPERIENCE PHOTOGRAPHY",
-    src: "/images/services/wedding_catering.png",
+    src: "/images/services/wedding_catering_real.jpg",
     category: "Bespoke Catering",
     iconName: "Coffee",
     features: [

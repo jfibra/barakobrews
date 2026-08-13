@@ -24,10 +24,19 @@ export default function PlaceholderImage({
   className = "",
   icon = "coffee",
 }: PlaceholderImageProps) {
-  // If actual image source is provided in the future, render the real image cleanly
+  const aspectClasses = {
+    "16/9": "aspect-[16/9]",
+    "4/3": "aspect-[4/3]",
+    "1/1": "aspect-square",
+    "21/9": "aspect-[21/9]",
+    "3/4": "aspect-[3/4]",
+    auto: "",
+  };
+
+  // If actual image source is provided, render the real image cleanly with aspect ratio
   if (src) {
     return (
-      <div className={`relative overflow-hidden rounded-2xl bg-espresso-dark ${className}`}>
+      <div className={`relative overflow-hidden rounded-2xl bg-espresso-dark ${aspectClasses[aspectRatio]} ${className}`}>
         {/* eslint-disable-next-next/no-img-element */}
         <img
           src={src}
@@ -38,15 +47,6 @@ export default function PlaceholderImage({
       </div>
     );
   }
-
-  const aspectClasses = {
-    "16/9": "aspect-[16/9]",
-    "4/3": "aspect-[4/3]",
-    "1/1": "aspect-square",
-    "21/9": "aspect-[21/9]",
-    "3/4": "aspect-[3/4]",
-    auto: "",
-  };
 
   const IconComponent =
     icon === "sparkles" ? Sparkles : icon === "camera" ? Camera : Coffee;

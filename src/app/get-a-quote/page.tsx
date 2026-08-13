@@ -14,19 +14,18 @@ function QuoteFormContainer() {
 
 export default function GetAQuotePage() {
   return (
-    <div className="pt-32 pb-24 space-y-12">
+    <div className="pt-28 pb-24 space-y-12 font-sans">
       {/* Header Banner */}
-      <section className="relative bg-[url('/images/bg/cta_bg_event.png')] bg-cover bg-center py-20 text-cream border-b border-caramel/20">
-        <div className="absolute inset-0 bg-espresso-dark/95 backdrop-blur-[1px]" />
+      <section className="relative bg-espresso-dark py-20 text-cream border-b border-caramel/20">
         <div className="relative z-10 mx-auto max-w-7xl px-6 sm:px-8 lg:px-12 text-center space-y-4">
-          <span className="inline-block text-xs font-bold uppercase tracking-[0.25em] text-caramel-light">
+          <span className="inline-block text-xs font-bold uppercase tracking-[0.25em] text-caramel-light bg-caramel/10 border border-caramel/30 px-4 py-1 rounded-full">
             EVENT PROPOSAL REQUEST
           </span>
-          <h1 className="font-serif text-4xl sm:text-5xl lg:text-6xl font-normal tracking-tight text-cream">
-            LET'S BREW SOMETHING SPECIAL.
+          <h1 className="font-sans text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-cream">
+            Let's brew something special.
           </h1>
-          <p className="text-base sm:text-lg text-cream/70 max-w-xl mx-auto">
-            Tell us about your event and we'll help create the perfect mobile coffee experience.
+          <p className="text-base sm:text-lg text-cream/80 max-w-xl mx-auto font-normal leading-relaxed">
+            Tell us a little about your event and we'll recommend the right coffee experience.
           </p>
         </div>
       </section>
@@ -35,8 +34,8 @@ export default function GetAQuotePage() {
       <section className="mx-auto max-w-7xl px-6 sm:px-8 lg:px-12">
         <Suspense
           fallback={
-            <div className="text-center py-16 text-cream/60 font-mono text-xs">
-              Loading Event Quote Request Tool...
+            <div className="text-center py-16 text-caramel-light font-mono text-xs">
+              Preparing your concierge quote builder...
             </div>
           }
         >
