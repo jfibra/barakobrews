@@ -32,7 +32,7 @@ export default function GalleryGrid() {
   return (
     <div className="space-y-8">
       {/* Category Tabs */}
-      <div className="flex flex-wrap items-center justify-center gap-2">
+      <div className="flex items-center gap-2 overflow-x-auto pb-2 sm:pb-0 justify-start sm:justify-center no-scrollbar">
         {galleryCategories.map((cat) => (
           <button
             key={cat}

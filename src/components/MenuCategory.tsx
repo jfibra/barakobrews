@@ -16,7 +16,7 @@ export default function MenuCategory() {
   return (
     <div className="space-y-8">
       {/* Category Tabs */}
-      <div className="flex flex-wrap items-center justify-center gap-2">
+      <div className="flex items-center gap-2 overflow-x-auto pb-2 sm:pb-0 sm:flex-wrap justify-start sm:justify-center no-scrollbar">
         {menuCategories.map((cat) => (
           <button
             key={cat.id}

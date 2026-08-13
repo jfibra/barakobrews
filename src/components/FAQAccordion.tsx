@@ -27,7 +27,7 @@ export default function FAQAccordion() {
       {/* Search & Category Filter Bar */}
       <div className="flex flex-col sm:flex-row items-center gap-4 justify-between">
         {/* Category Pills */}
-        <div className="flex flex-wrap items-center gap-2">
+        <div className="flex items-center gap-2 overflow-x-auto pb-2 sm:pb-0 w-full sm:w-auto no-scrollbar">
           {faqCategories.map((cat) => (
             <button
               key={cat.id}
