@@ -137,6 +137,11 @@ export default function QuoteForm({
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    if (currentStep < 5) {
+      nextStep();
+      return;
+    }
+
     if (!validateStep(currentStep)) return;
 
     setIsSubmitting(true);
@@ -235,7 +240,16 @@ export default function QuoteForm({
         </div>
       </div>
 
-      <form onSubmit={handleSubmit} className="space-y-6">
+      <form
+        onSubmit={handleSubmit}
+        onKeyDown={(e) => {
+          if (e.key === "Enter" && currentStep < 5) {
+            e.preventDefault();
+            nextStep();
+          }
+        }}
+        className="space-y-6"
+      >
         {/* STEP 1: Your Event */}
         {currentStep === 1 && (
           <div className="space-y-5 animate-fade-in">

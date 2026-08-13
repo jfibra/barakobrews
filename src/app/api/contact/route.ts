@@ -9,19 +9,37 @@ export async function POST(req: Request) {
 
     if (webhookUrl) {
       try {
+        const timestamp = new Date().toLocaleString("en-US", { timeZone: "America/Los_Angeles" });
+        const payload = JSON.stringify({
+          sheetName: "Contact Messages",
+          timestamp,
+          fullName: data.name || data.fullName || "",
+          email: data.email || "",
+          subject: data.subject || "",
+          message: data.message || "",
+          ...data,
+        });
+
         const response = await fetch(webhookUrl, {
           method: "POST",
           headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({
-            sheetName: "Contact Messages",
-            ...data,
-          }),
+          body: payload,
+          redirect: "follow",
         });
 
-        const result = await response.json();
-        return NextResponse.json({ success: true, googleSheet: result });
+        const textResult = await response.text();
+        let jsonResult;
+        try {
+          jsonResult = JSON.parse(textResult);
+        } catch {
+          jsonResult = { rawText: textResult.substring(0, 200) };
+        }
+
+        console.log("[Google Sheets Contact Response]:", jsonResult);
+        return NextResponse.json({ success: true, googleSheet: jsonResult });
       } catch (err) {
         console.error("Google Sheet webhook error:", err);
+        return NextResponse.json({ success: true, googleSheetError: String(err) });
       }
     }
 

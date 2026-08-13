@@ -9,17 +9,26 @@ export async function POST(req: Request) {
 
     if (webhookUrl) {
       try {
+        const timestamp = new Date().toLocaleString("en-US", { timeZone: "America/Los_Angeles" });
         const response = await fetch(webhookUrl, {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({
             sheetName: "Bookings",
+            timestamp,
             ...data,
           }),
+          redirect: "follow",
         });
 
-        const result = await response.json();
-        return NextResponse.json({ success: true, googleSheet: result });
+        const textResult = await response.text();
+        let jsonResult;
+        try {
+          jsonResult = JSON.parse(textResult);
+        } catch {
+          jsonResult = { text: textResult };
+        }
+        return NextResponse.json({ success: true, googleSheet: jsonResult });
       } catch (err) {
         console.error("Google Sheet webhook error:", err);
       }
