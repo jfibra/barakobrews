@@ -1,9 +1,10 @@
 import React from "react";
 import Link from "next/link";
-import { ArrowRight, Coffee, Heart, Sparkles, CheckCircle2, Quote } from "lucide-react";
+import { ArrowRight, CheckCircle2, Quote } from "lucide-react";
 import Hero from "@/components/Hero";
 import SectionHeading from "@/components/SectionHeading";
 import PlaceholderImage from "@/components/PlaceholderImage";
+import BeveragePartnerBanner from "@/components/BeveragePartnerBanner";
 import { packagesData } from "@/data/packages";
 
 export default function Home() {
@@ -437,7 +438,7 @@ export default function Home() {
                 <div className="space-y-4">
                   <Quote className="h-8 w-8 text-caramel-light/40" />
                   <p className="font-sans text-sm text-cream/90 italic leading-relaxed font-normal">
-                    "{item.quote}"
+                    &ldquo;{item.quote}&rdquo;
                   </p>
                 </div>
                 <div className="pt-4 border-t border-caramel/20 space-y-1">
@@ -463,10 +464,10 @@ export default function Home() {
               </span>
               <h2 className="font-sans text-4xl sm:text-5xl font-extrabold text-cream leading-[1.1]">
                 More than coffee. <br />
-                <span className="font-normal italic text-caramel-light">It's a reason to gather.</span>
+                <span className="font-normal italic text-caramel-light">It&apos;s a reason to gather.</span>
               </h2>
               <p className="text-sm sm:text-base text-cream/80 leading-relaxed font-normal max-w-xl">
-                BarakoBrews was founded on the belief that specialty coffee brings people together. Inspired by the bold heritage of Batangas Kapeng Barako and Filipino hospitality, we bring artisan coffee crafting to life's special occasions.
+                BarakoBrews was founded on the belief that specialty coffee brings people together. Inspired by the bold heritage of Batangas Kapeng Barako and Filipino hospitality, we bring artisan coffee crafting to life&apos;s special occasions.
               </p>
               <div className="pt-2">
                 <Link
@@ -491,6 +492,9 @@ export default function Home() {
         </div>
       </section>
 
+      {/* 9. BEVERAGE PARTNER: SUGAR SPLASH */}
+      <BeveragePartnerBanner />
+
       {/* FINAL CTA */}
       <section className="relative bg-espresso-dark py-28 text-cream">
         <div className="mx-auto max-w-5xl px-6 sm:px-8 lg:px-12 text-center space-y-8">
@@ -502,7 +506,7 @@ export default function Home() {
             <span className="font-normal italic text-caramel-light">great coffee.</span>
           </h2>
           <p className="text-base sm:text-lg text-cream/80 max-w-xl mx-auto leading-relaxed font-normal">
-            Let's make your next gathering memorable with freshly poured specialty coffee and warm barista service.
+            Let&apos;s make your next gathering memorable with freshly poured specialty coffee and warm barista service.
           </p>
 
           <div className="pt-4 flex flex-col sm:flex-row items-center justify-center gap-4">

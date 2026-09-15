@@ -1,6 +1,6 @@
 import React from "react";
 import Link from "next/link";
-import { Coffee, Mail, Phone, MapPin, ArrowUpRight } from "lucide-react";
+import { Mail, Phone, MapPin, ArrowUpRight } from "lucide-react";
 import Logo from "./Logo";
 import { businessInfo, navLinks } from "@/data/config";
 
@@ -20,11 +20,35 @@ export default function Footer() {
             </p>
             <div className="rounded-2xl border border-caramel/20 bg-espresso/60 p-4 backdrop-blur-md max-w-full sm:max-w-md">
               <p className="font-sans text-xs sm:text-sm font-bold text-caramel-light">
-                "{businessInfo.tagline}"
+                &ldquo;{businessInfo.tagline}&rdquo;
               </p>
               <p className="mt-1 text-[11px] text-cream/60 font-normal">
                 Fresh coffee. Great company. Memorable moments.
               </p>
+            </div>
+
+            {/* Beverage Partner Callout */}
+            <div className="rounded-2xl border border-caramel/25 bg-[#062D49]/80 p-3.5 backdrop-blur-md max-w-full sm:max-w-md flex items-center justify-between gap-3 shadow-inner">
+              <div className="flex items-center gap-3">
+                <span className="text-xl" role="img" aria-label="Lemon">🍋</span>
+                <div>
+                  <span className="text-[10px] font-bold uppercase tracking-wider text-[#F8C928] block">
+                    Our Beverage Partner
+                  </span>
+                  <p className="text-xs font-bold text-cream">
+                    Sugar Splash Lemonade Cart
+                  </p>
+                </div>
+              </div>
+              <a
+                href="https://sugarsplash.vercel.app/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-1 text-[11px] font-bold text-[#F8C928] hover:text-white transition-colors bg-white/10 hover:bg-white/20 px-3 py-1.5 rounded-full shrink-0"
+              >
+                <span>Visit Cart</span>
+                <ArrowUpRight className="h-3 w-3" />
+              </a>
             </div>
           </div>
 
@@ -142,7 +166,17 @@ export default function Footer() {
         {/* Bottom Bar */}
         <div className="mt-12 flex flex-col items-center justify-between border-t border-caramel/15 pt-8 text-xs text-cream/50 sm:flex-row gap-4 text-center sm:text-left">
           <p>© {new Date().getFullYear()} BarakoBrews. All rights reserved.</p>
-          <div className="flex gap-6">
+          <div className="flex flex-wrap items-center justify-center sm:justify-end gap-5 sm:gap-6">
+            <a
+              href="https://sugarsplash.vercel.app/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-caramel-light hover:text-cream flex items-center gap-1 transition-colors"
+            >
+              <span>Lemonade Partner: Sugar Splash</span>
+              <ArrowUpRight className="h-3 w-3 text-[#F8C928]" />
+            </a>
+            <span className="text-caramel/40 hidden sm:inline">•</span>
             <span className="hover:text-cream/80 cursor-pointer">Privacy Policy</span>
             <span className="hover:text-cream/80 cursor-pointer">Terms & Conditions</span>
           </div>

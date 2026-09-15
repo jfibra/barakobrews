@@ -478,6 +478,31 @@ export default function QuoteForm({
                 ))}
               </div>
             </div>
+
+            {/* Beverage Partner Dual-Cart Option */}
+            <div className="rounded-2xl border border-caramel/30 bg-[#062D49]/60 p-4 space-y-2">
+              <label className="flex items-start gap-3 cursor-pointer">
+                <input
+                  type="checkbox"
+                  checked={formData.nonCoffeeOptions.includes("Sugar Splash Lemonade Cart Catering (Partner Add-on)")}
+                  onChange={() => handleCheckboxToggle("nonCoffeeOptions", "Sugar Splash Lemonade Cart Catering (Partner Add-on)")}
+                  className="mt-0.5 accent-[#F8C928]"
+                />
+                <div className="space-y-0.5">
+                  <div className="flex flex-wrap items-center gap-2">
+                    <span className="text-xs font-bold text-cream">
+                      Add Partner Lemonade Cart by Sugar Splash?
+                    </span>
+                    <span className="text-[10px] font-bold uppercase tracking-wider bg-[#F8C928]/20 text-[#F8C928] px-2 py-0.5 rounded-full border border-[#F8C928]/30">
+                      Partner Add-on
+                    </span>
+                  </div>
+                  <p className="text-[11px] text-cream/70 leading-relaxed font-normal">
+                    Pair your coffee bar with freshly squeezed lemonade and a yellow-and-cream striped cart for a complete beverage experience.
+                  </p>
+                </div>
+              </label>
+            </div>
           </div>
         )}
 
